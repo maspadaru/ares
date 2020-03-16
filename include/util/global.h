@@ -1,9 +1,9 @@
-#ifndef LASER_UTIL_GLOBAL_H
-#define LASER_UTIL_GLOBAL_H
+#ifndef ARES_UTIL_GLOBAL_H
+#define ARES_UTIL_GLOBAL_H
 
 #include <cstdint>
 
-namespace laser::util {
+namespace ares::util {
 
 class Global {
   private:
@@ -22,6 +22,6 @@ class Global {
 
 };
 
-} // namespace laser::util
+} // namespace ares::util
 
-#endif // LASER_UTIL_GLOBAL_H
+#endif // ARES_UTIL_GLOBAL_H

@@ -1,5 +1,5 @@
-#ifndef LASER_RULE_MATH_MATH_MANAGER_H
-#define LASER_RULE_MATH_MATH_MANAGER_H
+#ifndef ARES_RULE_MATH_MATH_MANAGER_H
+#define ARES_RULE_MATH_MATH_MANAGER_H
 
 #include <memory>
 #include <vector>
@@ -16,7 +16,7 @@
 #include "util/grounding.h"
 #include "util/timeline.h"
 
-namespace laser::rule {
+namespace ares::rule {
 
 class MathManager {
   private:
@@ -40,6 +40,6 @@ class MathManager {
     bool has_math_atoms() const;
 };
 
-} // namespace laser::rule
+} // namespace ares::rule
 
-#endif // LASER_RULE_MATH_MATH_MANAGER_H
+#endif // ARES_RULE_MATH_MATH_MANAGER_H

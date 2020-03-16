@@ -1,6 +1,6 @@
 #include "util/settings.h"
 
-namespace laser {
+namespace ares {
 namespace util {
 
 Settings &Settings::get_instance() {
@@ -24,4 +24,4 @@ void Settings::set_global_null_values(bool has_global_nulls) {
 }
 
 } // namespace util
-} // namespace laser
+} // namespace ares

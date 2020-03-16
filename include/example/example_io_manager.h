@@ -1,5 +1,5 @@
-#ifndef LASER_EXAMPLE_EXAMPLE_IO_MANAGER_H
-#define LASER_EXAMPLE_EXAMPLE_IO_MANAGER_H
+#ifndef ARES_EXAMPLE_EXAMPLE_IO_MANAGER_H
+#define ARES_EXAMPLE_EXAMPLE_IO_MANAGER_H
 
 #include <memory>
 #include <vector>
@@ -12,10 +12,10 @@
 #include "example_reader.h"
 #include "example_writer.h"
 
-namespace laser {
+namespace ares {
 namespace example {
 
-class ExampleIOManager : public laser::core::IOManager {
+class ExampleIOManager : public ares::core::IOManager {
   private:
     ExampleWriter example_writer;
     ExampleReader example_stream_reader;
@@ -32,21 +32,21 @@ class ExampleIOManager : public laser::core::IOManager {
 
     uint64_t read_stream_end_time() override;
 
-    std::vector<std::shared_ptr<laser::util::Grounding>>
-    read_stream_data(laser::util::Timeline &timeline) override;
+    std::vector<std::shared_ptr<ares::util::Grounding>>
+    read_stream_data(ares::util::Timeline &timeline) override;
 
-    std::vector<std::shared_ptr<laser::util::Grounding>>
+    std::vector<std::shared_ptr<ares::util::Grounding>>
     read_background_data() override;
 
     void
     write_output_data(uint64_t time,
-                      std::vector<std::shared_ptr<laser::util::Grounding>>
+                      std::vector<std::shared_ptr<ares::util::Grounding>>
                           output_vector) override;
 
     std::string get_output(uint64_t time) const;
 };
 
 } // namespace example 
-} // namespace laser
+} // namespace ares
 
-#endif // LASER_EXAMPLE_EXAMPLE_IO_MANAGER_H
+#endif // ARES_EXAMPLE_EXAMPLE_IO_MANAGER_H

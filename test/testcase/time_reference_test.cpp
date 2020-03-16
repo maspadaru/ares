@@ -20,7 +20,7 @@ TEST(TimeReferenceTest, TimeReferenceBody) {
     expected[3] = "3 -> a(3, 4) a(3, 5)";
     expected[4] = "4 -> ";
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }
 
 TEST(TimeReferenceTest, TimeReferenceHead) {
@@ -48,7 +48,7 @@ TEST(TimeReferenceTest, TimeReferenceHead) {
     expected[14] = "14 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }
 
 TEST(TimeReferenceTest, TimeReferenceHeadAndBody) {
@@ -79,7 +79,7 @@ TEST(TimeReferenceTest, TimeReferenceHeadAndBody) {
     expected[14] = "14 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }
 
 //TEST(TimeReferenceTest, TimeReferenceRecursive) {
@@ -114,7 +114,7 @@ TEST(TimeReferenceTest, TimeReferenceHeadAndBody) {
     //expected[14] = "14 -> ";
 
     //test_framework::run_test(stream_string, rule_string, expected,
-                             //laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             //ares::util::ChaseAlgorithm::OBLIVIOUS);
 //}
 
 TEST(TimeReferenceTest, TimeReferenceBodyPastInput) {
@@ -137,7 +137,7 @@ TEST(TimeReferenceTest, TimeReferenceBodyPastInput) {
     expected[4] = "4 -> alarm(sg1, 1) alarm(sg1, 3) alarm(sg1, 4) alarm(sg2, 3)";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }
 
 TEST(TimeReferenceTest, TimeReferenceBodyPastConclusions) {
@@ -162,6 +162,6 @@ TEST(TimeReferenceTest, TimeReferenceBodyPastConclusions) {
     expected[4] = "4 -> alarm(sg1, 1) alarm(sg1, 3) alarm(sg1, 4) alarm(sg2, 3) logevent(sg1)";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }
 

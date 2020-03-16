@@ -2,7 +2,7 @@
 
 #include <algorithm>
 
-namespace laser::formula {
+namespace ares::formula {
 
 Conjunction::Conjunction(std::unique_ptr<formula::Formula> left_child,
                          std::unique_ptr<formula::Formula> right_child,
@@ -329,4 +329,4 @@ Conjunction::get_children() const {
 
 uint64_t Conjunction::get_window_size() const { return 0; }
 
-} // namespace laser::formula
+} // namespace ares::formula

@@ -1,6 +1,6 @@
 #include "rule/filter/oblivious_filter.h"
 
-namespace laser::rule {
+namespace ares::rule {
 
 //ChaseFilter *ObliviousFilter::create() const {
     //auto result = new ObliviousFilter();
@@ -51,4 +51,4 @@ ObliviousFilter::build_chase_facts(
 void ObliviousFilter::expire_outdated_groundings(
     util::Timeline const &timeline) {}
 
-} // namespace laser::rule
+} // namespace ares::rule

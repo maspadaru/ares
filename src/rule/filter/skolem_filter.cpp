@@ -1,6 +1,6 @@
 #include "rule/filter/skolem_filter.h"
 
-namespace laser::rule {
+namespace ares::rule {
 
 //ChaseFilter *SkolemFilter::create() const {
     //auto result = new SkolemFilter();
@@ -181,7 +181,7 @@ std::string SkolemFilter::generate_new_value(std::string const &var_name) {
     if (use_global_nulls) {
         auto null_value_count =
             util::Global::get_instance().get_null_value_count();
-        result = laser::util::special_value::CHASE_LABELED_NULL +
+        result = ares::util::special_value::CHASE_LABELED_NULL +
                  std::to_string(null_value_count);
     } else {
         result = var_name + std::to_string(null_value_count);
@@ -192,4 +192,4 @@ std::string SkolemFilter::generate_new_value(std::string const &var_name) {
 
 void SkolemFilter::expire_outdated_groundings(util::Timeline const &timeline) {}
 
-} // namespace laser::rule
+} // namespace ares::rule

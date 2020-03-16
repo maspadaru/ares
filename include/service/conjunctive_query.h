@@ -1,5 +1,5 @@
-#ifndef LASER_SERVICE_CONJUNCTIVE_QUERY_H
-#define LASER_SERVICE_CONJUNCTIVE_QUERY_H
+#ifndef ARES_SERVICE_CONJUNCTIVE_QUERY_H
+#define ARES_SERVICE_CONJUNCTIVE_QUERY_H
 
 #include <string>
 
@@ -8,7 +8,7 @@
 #include "service/request_type.h"
 #include "util/grounding.h"
 
-namespace laser {
+namespace ares {
 namespace service {
 
 class ConjunctiveQuery : public Request {
@@ -38,6 +38,6 @@ class ConjunctiveQuery : public Request {
 };
 
 } // namespace service
-} // namespace laser
+} // namespace ares
 
-#endif // LASER_SERVICE_CONJUNCTIVE_QUERY_H
+#endif // ARES_SERVICE_CONJUNCTIVE_QUERY_H

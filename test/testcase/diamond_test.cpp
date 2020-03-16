@@ -53,5 +53,5 @@ TEST(DiamondTest, DiamondAtom) {
         "u(Z, Z) u(a11, a11) u(-9.099, -9.099)";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }

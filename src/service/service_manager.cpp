@@ -1,6 +1,6 @@
 #include "service/service_manager.h"
 
-namespace laser {
+namespace ares {
 namespace service {
 
 ServiceManager::ServiceManager() : in(std::cin), out(std::cout) {}
@@ -46,4 +46,4 @@ void ServiceManager::update(
 }
 
 } // namespace service
-} // namespace laser
+} // namespace ares

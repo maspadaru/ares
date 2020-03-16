@@ -13,7 +13,7 @@ TEST(AlgebraTest, AlgebraSimple) {
                                 "3 : \n"
                                 "4 : \n";
     std::string rule_string = "plus(Z) := p(X) && q(Y) && +(Z, X, Y)\n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> plus(3)";
@@ -33,7 +33,7 @@ TEST(AlgebraTest, AlgebraAll) {
                               "minus(Z) := p(X) && q(Y) && -(Z, X, Y)\n"
                               "times(Z) := p(X) && q(Y) && *(Z, X, Y)\n"
                               "div(Z) := p(X) && q(Y) && /(Z, X, Y)\n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] =
@@ -52,7 +52,7 @@ TEST(AlgebraTest, AlgebraAll) {
     expected[13] = "13 -> ";
     expected[14] = "14 -> ";
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }
 
 TEST(AlgebraTest, AlgebraMultiple) {
@@ -63,7 +63,7 @@ TEST(AlgebraTest, AlgebraMultiple) {
                                 "4 : \n";
     std::string rule_string =
         "result(B, A) := -(B, A, X) && +(A, X, Y) && p(X, Y)\n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> result(4, 7)";
@@ -80,7 +80,7 @@ TEST(AlgebraTest, AlgebraDiamond) {
                                 "3 : \n"
                                 "4 : \n";
     std::string rule_string = "q(X) := [$, 2][D] p(Y, Z) && +(X, Y, Z)\n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> q(7)";
@@ -97,7 +97,7 @@ TEST(AlgebraTest, AlgebraDoublePredicate) {
                                 "3 : \n"
                                 "4 : \n";
     std::string rule_string = "q(R) := p(W, X) && p(Y, Z) && +(R, X, Z)\n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> q(4) q(6) q(8)";
@@ -115,7 +115,7 @@ TEST(AlgebraTest, AlgebraDoubleTerm) {
                                 "3 : \n"
                                 "4 : \n";
     std::string rule_string = "q(R) := p(X, Y) && +(R, X, X)\n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> q(2) q(6) q(10)";
@@ -133,7 +133,7 @@ TEST(AlgebraTest, AlgebraDoubleVariable) {
                                 "3 : \n"
                                 "4 : \n";
     std::string rule_string = "q(R) := p(X, X) && p(Y, Y) && +(R, X, Y)\n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> q(10)";
@@ -151,7 +151,7 @@ TEST(AlgebraTest, AlgebraTimeRefHead) {
                                 "3 : p(a3, 2)\n"
                                 "4 : \n";
     std::string rule_string = "[@, T] q(A) := p(A, X) && +(T, X, Y) && =(Y, 1) \n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> ";
@@ -169,7 +169,7 @@ TEST(AlgebraTest, AlgebraReadingTimeVariable) {
                                 "4 : \n";
     std::string rule_string =
         "q(T, X, U) := [@, T] p(X) && -(U, T, ONE) && =(ONE, 1) \n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> q(1, 11, 0)";
@@ -187,7 +187,7 @@ TEST(AlgebraTest, AlgebraTimeRefNextTime) {
                                 "4 : \n";
     std::string rule_string =
         "[@, U] a(X) := [@, T] b(X) && +(U, T, Y) && =(Y, 1) \n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> ";
@@ -204,7 +204,7 @@ TEST(AlgebraTest, AlgebraCondition) {
                                 "3 : p(3), q(3), r(5)\n"
                                 "4 : p(2), p(3), q(3), r(5), r(6)\n";
     std::string rule_string = "a(Z) := p(X) && q(Y) && r(Z) && +(Z, X, Y)\n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> a(5)";
@@ -225,7 +225,7 @@ TEST(AlgebraTest, AlgebraTimeRefBody) {
                                 "4 : \n";
     std::string rule_string =
         "q(T, X) := [@, T] p(X) && -(T, X, Y) && =(Y, 1) \n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> ";

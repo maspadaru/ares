@@ -14,7 +14,7 @@ TEST(RecursiveTest, RecursiveSimple) {
                                 "4 : \n";
     std::string rule_string = "b(X) := [$, 3] [D] d(X)\n"
                               "d(X) := q(X) && p(X)\n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> b(1) d(1)";
@@ -39,7 +39,7 @@ TEST(RecursiveTest, RecursiveComplex) {
                               "c(X) := [$, 3] [B] e(X)\n"
                               "e(X) := b(X) && p(X)\n"
                               "d(X) := q(X) && p(X)\n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> a(1) b(1) c(1) e(1) d(1)";

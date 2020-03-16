@@ -6,20 +6,20 @@
 
 // methods
 
-namespace laser {
+namespace ares {
 namespace example {
 
-std::vector<std::shared_ptr<laser::util::Grounding>>
+std::vector<std::shared_ptr<ares::util::Grounding>>
 ExampleWriter::remove_duplicates(
-    std::vector<std::shared_ptr<laser::util::Grounding>> input_groundings)
+    std::vector<std::shared_ptr<ares::util::Grounding>> input_groundings)
     const {
-    std::set<std::shared_ptr<laser::util::Grounding>,
-             laser::util::GroundingPredicateSubstitutionCompare>
+    std::set<std::shared_ptr<ares::util::Grounding>,
+             ares::util::GroundingPredicateSubstitutionCompare>
         grounding_set;
     for (auto &grounding : input_groundings) {
         grounding_set.insert(std::move(grounding));
     }
-    std::vector<std::shared_ptr<laser::util::Grounding>> result;
+    std::vector<std::shared_ptr<ares::util::Grounding>> result;
     result.insert(result.end(), std::make_move_iterator(grounding_set.begin()),
                   std::make_move_iterator(grounding_set.end()));
     return result;
@@ -27,7 +27,7 @@ ExampleWriter::remove_duplicates(
 
 std::string ExampleWriter::format_output(
     uint64_t time,
-    std::vector<std::shared_ptr<laser::util::Grounding>> output_vector) const {
+    std::vector<std::shared_ptr<ares::util::Grounding>> output_vector) const {
     std::stringstream result_stream;
     const std::string TIME_SEPARATOR = " -> ";
     const std::string ARGUMENTS_START = "(";
@@ -59,4 +59,4 @@ void ExampleWriter::write_output(
 }
 
 } // namespace example 
-} // namespace laser
+} // namespace ares

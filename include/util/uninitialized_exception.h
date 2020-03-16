@@ -1,9 +1,5 @@
-//
-// Created by mike on 6/19/18.
-//
-
-#ifndef LASER_UTIL_UNINITIALIZED_EXCEPTION_H
-#define LASER_UTIL_UNINITIALIZED_EXCEPTION_H
+#ifndef ARES_UTIL_UNINITIALIZED_EXCEPTION_H
+#define ARES_UTIL_UNINITIALIZED_EXCEPTION_H
 
 #include <exception>
 
@@ -28,4 +24,4 @@ public:
 } // namespace laser
 
 
-#endif // LASER_UTIL_UNINITIALIZED_EXCEPTION_H
+#endif // ARES_UTIL_UNINITIALIZED_EXCEPTION_H

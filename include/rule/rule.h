@@ -1,5 +1,5 @@
-#ifndef LASER_RULE_RULE_H
-#define LASER_RULE_RULE_H
+#ifndef ARES_RULE_RULE_H
+#define ARES_RULE_RULE_H
 
 #include <iostream>
 #include <memory>
@@ -21,7 +21,7 @@
 #include "util/settings.h"
 #include "util/timeline.h"
 
-namespace laser::rule {
+namespace ares::rule {
 
 class Rule {
   private:
@@ -129,6 +129,6 @@ class Rule {
     void set_current_step(size_t step);
 };
 
-} // namespace laser::rule
+} // namespace ares::rule
 
-#endif // LASER_RULE_RULE_H
+#endif // ARES_RULE_RULE_H

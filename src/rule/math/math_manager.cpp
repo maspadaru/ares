@@ -1,6 +1,6 @@
 #include "rule/math/math_manager.h"
 
-namespace laser::rule {
+namespace ares::rule {
 
 std::unique_ptr<Evaluator>
 generate_evaluator(std::unique_ptr<formula::Formula> const &math_atom,
@@ -98,4 +98,4 @@ void MathManager::expire_outdated_groundings() {
 
 bool MathManager::has_math_atoms() const { return !evaluators.empty(); }
 
-} // namespace laser::rule
+} // namespace ares::rule

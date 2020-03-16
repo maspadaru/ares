@@ -1,6 +1,6 @@
 #include "formula/extended/atom.h"
 
-namespace laser::formula {
+namespace ares::formula {
 
 Atom::Atom(std::string predicate) {
     this->arity_map.try_emplace(predicate, 0);
@@ -162,4 +162,4 @@ Atom::get_children() const {
 
 uint64_t Atom::get_window_size() const { return 0; }
 
-} // namespace laser::formula
+} // namespace ares::formula

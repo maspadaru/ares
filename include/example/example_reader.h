@@ -1,9 +1,5 @@
-//
-// Created by mike on 6/21/18.
-//
-
-#ifndef LASER_EXAMPLE_EXAMPLE_READER_H
-#define LASER_EXAMPLE_EXAMPLE_READER_H
+#ifndef ARES_EXAMPLE_EXAMPLE_READER_H
+#define ARES_EXAMPLE_EXAMPLE_READER_H
 
 #include <sstream>
 #include <string>
@@ -14,7 +10,7 @@
 #include <util/format_exception.h>
 #include <util/read_exception.h>
 
-namespace laser {
+namespace ares {
 namespace example {
 
 class ExampleReader {
@@ -61,6 +57,6 @@ class ExampleReader {
 };
 
 } // namespace example
-} // namespace laser
+} // namespace ares
 
-#endif // LASER_EXAMPLE_EXAMPLE_READER_H
+#endif // ARES_EXAMPLE_EXAMPLE_READER_H

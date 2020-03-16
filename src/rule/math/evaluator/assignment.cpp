@@ -1,6 +1,6 @@
 #include "rule/math/evaluator/assignment.h"
 
-namespace laser::rule {
+namespace ares::rule {
 
 Assignment::Assignment(std::string predicate,
                        std::vector<std::string> const &arguments,
@@ -42,4 +42,4 @@ formula::MathOperator Assignment::get_operator() const { return math_operator; }
 
 EvaluatorType Assignment::get_evaluator_type() const { return evaluator_type; }
 
-} // namespace laser::rule
+} // namespace ares::rule

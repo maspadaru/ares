@@ -43,7 +43,7 @@ TEST(ConjunctionTest, SameVariables) {
     expected[14] = "14 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }
 
 TEST(ConjunctionTest, TwoVariables) {
@@ -84,7 +84,7 @@ TEST(ConjunctionTest, TwoVariables) {
     expected[14] = "14 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }
 
 TEST(ConjunctionTest, ConjunctionDiamond) {
@@ -125,7 +125,7 @@ TEST(ConjunctionTest, ConjunctionDiamond) {
     expected[14] = "14 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }
 
 TEST(ConjunctionTest, ConjunctionBox) {
@@ -165,7 +165,7 @@ TEST(ConjunctionTest, ConjunctionBox) {
     expected[14] = "14 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }
 
 TEST(ConjunctionTest, ConjunctionCrossVariables) {
@@ -201,7 +201,7 @@ TEST(ConjunctionTest, ConjunctionCrossVariables) {
     expected[14] = "14 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }
 
 TEST(ConjunctionTest, ConjunctionSNE) {
@@ -222,7 +222,7 @@ TEST(ConjunctionTest, ConjunctionSNE) {
     expected[4] = "4 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }
 
 TEST(ConjunctionTest, ConjunctionTransitive) {
@@ -243,7 +243,7 @@ TEST(ConjunctionTest, ConjunctionTransitive) {
     expected[4] = "4 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }
 
 TEST(ConjunctionTest, ConjunctionHead) {
@@ -266,7 +266,7 @@ TEST(ConjunctionTest, ConjunctionHead) {
     expected[4] = "4 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }
 
 TEST(ConjunctionTest, ConjunctionHeadTimeReference) {
@@ -293,7 +293,7 @@ TEST(ConjunctionTest, ConjunctionHeadTimeReference) {
     expected[4] = "4 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }
 
 TEST(ConjunctionTest, ConjunctionCommutative) {
@@ -318,7 +318,7 @@ TEST(ConjunctionTest, ConjunctionCommutative) {
     expected[6] = "6 -> q(x) r(x)";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }
 
 TEST(ConjunctionTest, ConjunctionCommonVariables) {
@@ -333,5 +333,5 @@ TEST(ConjunctionTest, ConjunctionCommonVariables) {
     expected[1] = "1 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }

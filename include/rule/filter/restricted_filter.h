@@ -1,5 +1,5 @@
-#ifndef LASER_RULE_FILTER_RESTRICTED_FILTER_H
-#define LASER_RULE_FILTER_RESTRICTED_FILTER_H
+#ifndef ARES_RULE_FILTER_RESTRICTED_FILTER_H
+#define ARES_RULE_FILTER_RESTRICTED_FILTER_H
 
 #include <memory>
 #include <unordered_map>
@@ -17,7 +17,7 @@
 #include "util/shared.h"
 #include "util/timeline.h"
 
-namespace laser::rule {
+namespace ares::rule {
 
 /**
  * Restricted Chase Filter
@@ -151,6 +151,6 @@ class RestrictedFilter : public ChaseFilter {
     void expire_outdated_groundings(util::Timeline const &timeline) override;
 };
 
-} // namespace laser::rule
+} // namespace ares::rule
 
-#endif // LASER_RULE_FILTER_RESTRICTED_FILTER_H
+#endif // ARES_RULE_FILTER_RESTRICTED_FILTER_H

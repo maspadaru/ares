@@ -1,7 +1,7 @@
-#ifndef LASER_FORMULA_MATH_OPERATOR_H
-#define LASER_FORMULA_MATH_OPERATOR_H
+#ifndef ARES_FORMULA_MATH_OPERATOR_H
+#define ARES_FORMULA_MATH_OPERATOR_H
 
-namespace laser::formula {
+namespace ares::formula {
 
 enum class MathOperator {
     ASSIGNMENT,
@@ -18,6 +18,6 @@ enum class MathOperator {
     NONE
 };
 
-} // namespace laser::formula
+} // namespace ares::formula
 
-#endif // LASER_FORMULA_MATH_OPERATOR_H
+#endif // ARES_FORMULA_MATH_OPERATOR_H

@@ -1,7 +1,7 @@
-#ifndef LASER_FORMULA_FORMULA_TYPE_H
-#define LASER_FORMULA_FORMULA_TYPE_H
+#ifndef ARES_FORMULA_FORMULA_TYPE_H
+#define ARES_FORMULA_FORMULA_TYPE_H
 
-namespace laser::formula {
+namespace ares::formula {
 
 
 enum class FormulaType {
@@ -20,6 +20,6 @@ enum class FormulaType {
 };
 
 
-} // namespace laser::formula
+} // namespace ares::formula
 
-#endif // LASER_FORMULA_FORMULA_TYPE_H
+#endif // ARES_FORMULA_FORMULA_TYPE_H

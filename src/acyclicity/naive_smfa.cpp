@@ -1,6 +1,6 @@
 #include "acyclicity/naive_smfa.h"
 
-namespace laser::acyclicity {
+namespace ares::acyclicity {
 
 NaiveSMFA::NaiveSMFA(
     std::vector<std::unique_ptr<rule::Rule>> const &input_program) {
@@ -42,7 +42,7 @@ void NaiveSMFA::compute_extensional_predicates() {
 std::vector<std::shared_ptr<util::Grounding>>
 NaiveSMFA::generate_critical_facts() {
     std::vector<std::shared_ptr<util::Grounding>> result;
-    uint64_t max_tuple_counter = laser::util::Timeline::INFINITE_TIME;
+    uint64_t max_tuple_counter = ares::util::Timeline::INFINITE_TIME;
     auto time = critical_timeline.get_time();
     for (auto const &predicate : extensional_predicates) {
         std::vector<std::string> constant_vector;
@@ -282,4 +282,4 @@ void NaiveSMFA::compute_smfa_rule_vector() {
     }
 }
 
-} // namespace laser::acyclicity
+} // namespace ares::acyclicity

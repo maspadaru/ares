@@ -1,5 +1,5 @@
-#ifndef LASER_RULE_MATH_EVALUATOR_H
-#define LASER_RULE_MATH_EVALUATOR_H
+#ifndef ARES_RULE_MATH_EVALUATOR_H
+#define ARES_RULE_MATH_EVALUATOR_H
 
 #include <memory>
 #include <vector>
@@ -11,7 +11,7 @@
 #include "util/grounding.h"
 #include "util/timeline.h"
 
-namespace laser::rule {
+namespace ares::rule {
 
 /**
  * Math Evaluator Interface
@@ -41,6 +41,6 @@ class Evaluator {
     get_groundings() = 0;
 };
 
-} // namespace laser::rule
+} // namespace ares::rule
 
-#endif // LASER_RULE_MATH_EVALUATOR_H
+#endif // ARES_RULE_MATH_EVALUATOR_H

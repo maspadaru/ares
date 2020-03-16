@@ -1,5 +1,5 @@
-#ifndef LASER_FORMULA_GROUNDING_TABLE_H
-#define LASER_FORMULA_GROUNDING_TABLE_H
+#ifndef ARES_FORMULA_GROUNDING_TABLE_H
+#define ARES_FORMULA_GROUNDING_TABLE_H
 
 #include <iostream>
 #include <list>
@@ -10,7 +10,7 @@
 
 #include "util/grounding.h"
 
-namespace laser::formula {
+namespace ares::formula {
 
 using grounding_sptr = std::shared_ptr<util::Grounding>;
 using grounding_set = std::set<grounding_sptr, util::GroundingFullCompare>;
@@ -63,6 +63,6 @@ class GroundingTable {
     void clear();
 };
 
-} // namespace laser::formula
+} // namespace ares::formula
 
-#endif // LASER_FORMULA_GROUNDING_TABLE_H
+#endif // ARES_FORMULA_GROUNDING_TABLE_H

@@ -1,5 +1,5 @@
-#ifndef LASER_RULE_RULE_PARSER_H
-#define LASER_RULE_RULE_PARSER_H
+#ifndef ARES_RULE_RULE_PARSER_H
+#define ARES_RULE_RULE_PARSER_H
 
 #include <algorithm>
 #include <set>
@@ -16,7 +16,7 @@
 #include "rule/rule.h"
 #include "util/format_exception.h"
 
-namespace laser::rule {
+namespace ares::rule {
 
 /**
  *
@@ -72,32 +72,32 @@ class RuleParser {
     std::vector<std::string> parse_argument_vector();
 
     // rules and formulas
-    std::unique_ptr<laser::formula::Formula> parse_assignment_atom();
-    std::unique_ptr<laser::formula::Formula> parse_condition_atom();
-    std::unique_ptr<laser::formula::Formula> parse_algebra_atom();
-    std::vector<std::unique_ptr<laser::rule::Rule>> parse_program();
-    std::unique_ptr<laser::rule::Rule> parse_rule();
-    std::vector<std::unique_ptr<laser::formula::Formula>> parse_head();
-    std::unique_ptr<laser::formula::Formula> parse_head_atom();
-    std::unique_ptr<laser::formula::Formula> parse_body();
-    std::unique_ptr<laser::formula::Formula> parse_complex_formula();
-    std::unique_ptr<laser::formula::Formula> parse_binary_formula();
-    std::unique_ptr<laser::formula::Formula> parse_binary_operator();
-    std::unique_ptr<laser::formula::Formula> parse_term();
-    std::unique_ptr<laser::formula::Formula> parse_atom();
-    std::unique_ptr<laser::formula::Formula> parse_predicate_atom();
-    std::unique_ptr<laser::formula::Formula> parse_comparison_atom();
-    std::unique_ptr<laser::formula::Formula> parse_math_atom();
-    std::unique_ptr<laser::formula::Formula> parse_unary_formula();
-    std::unique_ptr<laser::formula::Formula> parse_diamond();
-    std::unique_ptr<laser::formula::Formula> parse_box();
-    std::unique_ptr<laser::formula::Formula> parse_negation();
-    std::unique_ptr<laser::formula::Formula> parse_time_reference();
-    std::unique_ptr<laser::formula::Formula> parse_time_window();
-    std::unique_ptr<laser::formula::Formula> parse_tuple_window();
-    std::unique_ptr<laser::formula::Formula> parse_inertia_operator();
-    std::unique_ptr<laser::formula::Formula> parse_extended_head_atom();
-    std::vector<std::unique_ptr<laser::formula::Formula>>
+    std::unique_ptr<ares::formula::Formula> parse_assignment_atom();
+    std::unique_ptr<ares::formula::Formula> parse_condition_atom();
+    std::unique_ptr<ares::formula::Formula> parse_algebra_atom();
+    std::vector<std::unique_ptr<ares::rule::Rule>> parse_program();
+    std::unique_ptr<ares::rule::Rule> parse_rule();
+    std::vector<std::unique_ptr<ares::formula::Formula>> parse_head();
+    std::unique_ptr<ares::formula::Formula> parse_head_atom();
+    std::unique_ptr<ares::formula::Formula> parse_body();
+    std::unique_ptr<ares::formula::Formula> parse_complex_formula();
+    std::unique_ptr<ares::formula::Formula> parse_binary_formula();
+    std::unique_ptr<ares::formula::Formula> parse_binary_operator();
+    std::unique_ptr<ares::formula::Formula> parse_term();
+    std::unique_ptr<ares::formula::Formula> parse_atom();
+    std::unique_ptr<ares::formula::Formula> parse_predicate_atom();
+    std::unique_ptr<ares::formula::Formula> parse_comparison_atom();
+    std::unique_ptr<ares::formula::Formula> parse_math_atom();
+    std::unique_ptr<ares::formula::Formula> parse_unary_formula();
+    std::unique_ptr<ares::formula::Formula> parse_diamond();
+    std::unique_ptr<ares::formula::Formula> parse_box();
+    std::unique_ptr<ares::formula::Formula> parse_negation();
+    std::unique_ptr<ares::formula::Formula> parse_time_reference();
+    std::unique_ptr<ares::formula::Formula> parse_time_window();
+    std::unique_ptr<ares::formula::Formula> parse_tuple_window();
+    std::unique_ptr<ares::formula::Formula> parse_inertia_operator();
+    std::unique_ptr<ares::formula::Formula> parse_extended_head_atom();
+    std::vector<std::unique_ptr<ares::formula::Formula>>
     parse_formula_vector();
 
   public:
@@ -112,9 +112,9 @@ class RuleParser {
      * @throw ReadException if any problem occurred while reading the input,
      * e.g.: source file is inaccessible
      */
-    std::vector<std::unique_ptr<laser::rule::Rule>> get_rules();
+    std::vector<std::unique_ptr<ares::rule::Rule>> get_rules();
 };
 
-} // namespace laser::rule
+} // namespace ares::rule
 
-#endif // LASER_RULE_RULE_PARSER_H
+#endif // ARES_RULE_RULE_PARSER_H

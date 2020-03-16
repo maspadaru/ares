@@ -1,6 +1,6 @@
 #include "formula/extended/time_reference.h"
 
-namespace laser::formula {
+namespace ares::formula {
 
 TimeReference::TimeReference(std::string time_variable,
                              std::unique_ptr<formula::Formula> child)
@@ -223,4 +223,4 @@ TimeReference::get_children() const {
 
 uint64_t TimeReference::get_window_size() const { return 0; }
 
-} // namespace laser::formula
+} // namespace ares::formula

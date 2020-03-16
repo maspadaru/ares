@@ -1,6 +1,6 @@
 #include "formula/extended/box.h"
 
-namespace laser::formula {
+namespace ares::formula {
 
 Box::Box(std::unique_ptr<formula::Formula> child) : child(std::move(child)) {}
 
@@ -195,4 +195,4 @@ Box::get_children() const {
 
 uint64_t Box::get_window_size() const { return 0; }
 
-} // namespace laser::formula
+} // namespace ares::formula

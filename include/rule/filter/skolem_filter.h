@@ -1,5 +1,5 @@
-#ifndef LASER_RULE_FILTER_SKOLEM_FILTER_H
-#define LASER_RULE_FILTER_SKOLEM_FILTER_H
+#ifndef ARES_RULE_FILTER_SKOLEM_FILTER_H
+#define ARES_RULE_FILTER_SKOLEM_FILTER_H
 
 #include <iterator> // std::ostream_iterator
 #include <map>
@@ -18,7 +18,7 @@
 #include "util/shared.h"
 #include "util/timeline.h"
 
-namespace laser::rule {
+namespace ares::rule {
 
 /**
  * Skolem Chase Filter
@@ -88,6 +88,6 @@ class SkolemFilter : public ChaseFilter {
     void expire_outdated_groundings(util::Timeline const &timeline) override;
 };
 
-} // namespace laser::rule
+} // namespace ares::rule
 
-#endif // LASER_RULE_FILTER_SKOLEM_FILTER_H
+#endif // ARES_RULE_FILTER_SKOLEM_FILTER_H

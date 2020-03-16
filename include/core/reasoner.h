@@ -1,5 +1,5 @@
-#ifndef LASER_CORE_REASONER_H
-#define LASER_CORE_REASONER_H
+#ifndef ARES_CORE_REASONER_H
+#define ARES_CORE_REASONER_H
 
 #include <iostream>
 #include <mutex>
@@ -17,7 +17,7 @@
 #include "util/settings.h"
 #include "util/timeline.h"
 
-namespace laser::core {
+namespace ares::core {
 
 class Reasoner {
   private:
@@ -29,7 +29,7 @@ class Reasoner {
     std::condition_variable output_ready_condition;
     IOManager *io_manager;
     // service::ServiceManager *service_manager;
-    std::vector<std::unique_ptr<laser::rule::Rule>> &rule_vector;
+    std::vector<std::unique_ptr<ares::rule::Rule>> &rule_vector;
     bool is_listen_on = false;
     std::unordered_map<uint64_t, std::vector<std::shared_ptr<util::Grounding>>>
         fact_map;
@@ -56,7 +56,7 @@ class Reasoner {
 
   public:
     explicit Reasoner(
-        std::vector<std::unique_ptr<laser::rule::Rule>> &rule_vector,
+        std::vector<std::unique_ptr<ares::rule::Rule>> &rule_vector,
         IOManager *io_manager);
 
     // explicit Reasoner(std::vector<rule::Rule> *rule_vector,
@@ -70,6 +70,6 @@ class Reasoner {
     std::vector<double> const &get_runtimes() const;
 };
 
-} // namespace laser::core
+} // namespace ares::core
 
-#endif // LASER_CORE_REASONER_H
+#endif // ARES_CORE_REASONER_H

@@ -1,6 +1,6 @@
 #include "formula/grounding_table.h"
 
-namespace laser::formula {
+namespace ares::formula {
 
 bool GroundingTable::has_recent_groundings() {
     return !recent_groundings_vector.empty();
@@ -125,4 +125,4 @@ void GroundingTable::clear() {
 
 }
 
-} // namespace laser::formula
+} // namespace ares::formula

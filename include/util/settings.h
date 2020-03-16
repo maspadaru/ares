@@ -1,9 +1,9 @@
-#ifndef LASER_UTIL_SETTINGS_H
-#define LASER_UTIL_SETTINGS_H
+#ifndef ARES_UTIL_SETTINGS_H
+#define ARES_UTIL_SETTINGS_H
 
 #include "util/chase_algorithm.h"
 
-namespace laser {
+namespace ares {
 namespace util {
 
 class Settings {
@@ -30,6 +30,6 @@ class Settings {
 };
 
 } // namespace util
-} // namespace laser
+} // namespace ares
 
-#endif // LASER_UTIL_SETTINGS_H
+#endif // ARES_UTIL_SETTINGS_H

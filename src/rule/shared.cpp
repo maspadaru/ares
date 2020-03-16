@@ -1,6 +1,6 @@
 #include "rule/shared.h"
 
-namespace laser {
+namespace ares {
 namespace rule {
 namespace shared {
 
@@ -28,4 +28,4 @@ make_ordered_index(std::vector<std::string> const &vector) {
 
 } // namespace share
 } // namespace rule
-} // namespace laser
+} // namespace ares

@@ -1,6 +1,6 @@
 #include "service/request_parser.h"
 
-namespace laser {
+namespace ares {
 namespace service {
 
 inline void
@@ -182,7 +182,7 @@ std::string RequestParser::parse_float_argument() {
     return parse_float();
 }
 
-std::unique_ptr<laser::formula::Formula> RequestParser::parse_predicate_atom() {
+std::unique_ptr<ares::formula::Formula> RequestParser::parse_predicate_atom() {
     std::vector<std::string> argument_vector;
     std::string predicate = parse_identifier();
     skip_spaces();
@@ -203,8 +203,8 @@ std::unique_ptr<laser::formula::Formula> RequestParser::parse_predicate_atom() {
         }
         skip_expected_char(')');
     }
-    return std::make_unique<laser::formula::Atom>(predicate,
-                                                  std::move(argument_vector));
+    return std::make_unique<ares::formula::Atom>(predicate,
+                                                 std::move(argument_vector));
 }
 
 //==========================================
@@ -213,9 +213,9 @@ RequestParser::RequestParser(
     std::vector<std::shared_ptr<util::Grounding>> const &db_facts)
     : database_facts(db_facts) {}
 
-std::vector<std::unique_ptr<laser::formula::Formula>>
+std::vector<std::unique_ptr<ares::formula::Formula>>
 RequestParser::parse_atom_vector() {
-    std::vector<std::unique_ptr<laser::formula::Formula>> result;
+    std::vector<std::unique_ptr<ares::formula::Formula>> result;
     result.push_back(parse_predicate_atom());
     skip_spaces();
     while (is_next_char_conjunction_operator()) {
@@ -300,4 +300,4 @@ std::unique_ptr<Request> RequestParser::parse_query() {
 }
 
 } // namespace service
-} // namespace laser
+} // namespace ares

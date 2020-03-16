@@ -1,6 +1,6 @@
 #include "service/query.h"
 
-namespace laser {
+namespace ares {
 namespace service {
 
 std::string Query::evaluate() {
@@ -82,4 +82,4 @@ Query::compute_answer() {
 }
 
 } // namespace service
-} // namespace laser
+} // namespace ares

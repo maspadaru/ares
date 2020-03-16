@@ -1,7 +1,7 @@
-#ifndef LASER_RULE_MATH_EVALUATOR_TYPE_H
-#define LASER_RULE_MATH_EVALUATOR_TYPE_H
+#ifndef ARES_RULE_MATH_EVALUATOR_TYPE_H
+#define ARES_RULE_MATH_EVALUATOR_TYPE_H
 
-namespace laser::rule {
+namespace ares::rule {
 
 enum class EvaluatorType {
     ASSIGNMENT,
@@ -10,6 +10,6 @@ enum class EvaluatorType {
 };
 
 
-} // namespace laser::rule
+} // namespace ares::rule
 
-#endif // LASER_RULE_MATH_EVALUATOR_TYPE_H
+#endif // ARES_RULE_MATH_EVALUATOR_TYPE_H

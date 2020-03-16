@@ -4,7 +4,7 @@
 
 #include "example/example_parser.h"
 
-namespace laser {
+namespace ares {
 namespace example {
 
 /* trim from start (in place)
@@ -40,7 +40,7 @@ static inline void trim(std::string *s) {
 static inline void syntax_error(std::string error_message) {
     std::string message = "Syntax Error in Example Parser: " + error_message;
     const char *exception_message = message.c_str();
-    throw laser::util::FormatException(exception_message);
+    throw ares::util::FormatException(exception_message);
 }
 
 Token ExampleParser::recognize(std::string token_string) const {
@@ -106,15 +106,15 @@ ExampleParser::tokenize(std::string &rule_string) const {
 
 // ======== Parser =========
 
-std::vector<std::shared_ptr<laser::util::Grounding>>
+std::vector<std::shared_ptr<ares::util::Grounding>>
 ExampleParser::parse_token_vector(
-    laser::util::Timeline const &timeline,
-    std::vector<Token> const &input_token_vector) {
+        ares::util::Timeline const &timeline,
+        std::vector<Token> const &input_token_vector) {
     uint64_t time = timeline.get_time();
-    uint64_t max_tuple_counter = laser::util::Timeline::INFINITE_TIME;
+    uint64_t max_tuple_counter = ares::util::Timeline::INFINITE_TIME;
     std::vector<std::string> token_list;
     std::string predicate;
-    std::vector<std::shared_ptr<laser::util::Grounding>> result;
+    std::vector<std::shared_ptr<ares::util::Grounding>> result;
     for (auto token : input_token_vector) {
         switch (token.type) {
         case TokenType::OPEN_PARENTHESES: {
@@ -133,7 +133,7 @@ ExampleParser::parse_token_vector(
         }
         case TokenType::CLOSED_PARENTHESES: {
             current_tuple_counter++;
-            auto grounding = std::make_shared<laser::util::Grounding>(
+            auto grounding = std::make_shared<ares::util::Grounding>(
                 predicate, time, time, current_tuple_counter, max_tuple_counter,
                 true, false, token_list);
             result.push_back(std::move(grounding));
@@ -145,10 +145,10 @@ ExampleParser::parse_token_vector(
     return result;
 }
 
-std::vector<std::shared_ptr<laser::util::Grounding>>
-ExampleParser::parse_data(laser::util::Timeline &timeline,
+std::vector<std::shared_ptr<ares::util::Grounding>>
+ExampleParser::parse_data(ares::util::Timeline &timeline,
                           std::vector<std::string> &raw_data_vector) {
-    std::vector<std::shared_ptr<laser::util::Grounding>> grounding_vector;
+    std::vector<std::shared_ptr<ares::util::Grounding>> grounding_vector;
     for (auto &raw_string : raw_data_vector) {
         auto token_vector = tokenize(raw_string);
         if (!token_vector.empty()) {
@@ -164,4 +164,4 @@ ExampleParser::parse_data(laser::util::Timeline &timeline,
 }
 
 } // namespace example 
-} // namespace laser
+} // namespace ares

@@ -1,9 +1,9 @@
-#ifndef LASER_SERVICE_REQUEST_H
-#define LASER_SERVICE_REQUEST_H
+#ifndef ARES_SERVICE_REQUEST_H
+#define ARES_SERVICE_REQUEST_H
 
 #include <string>
 
-namespace laser {
+namespace ares {
 namespace service {
 
 class Request {
@@ -16,6 +16,6 @@ class Request {
 };
 
 } // namespace service 
-} // namespace laser
+} // namespace ares
 
-#endif // LASER_SERVICE_REQUEST_H
+#endif // ARES_SERVICE_REQUEST_H

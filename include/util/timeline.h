@@ -1,5 +1,5 @@
-#ifndef LASER_UTIL_TIMELINE_H
-#define LASER_UTIL_TIMELINE_H
+#ifndef ARES_UTIL_TIMELINE_H
+#define ARES_UTIL_TIMELINE_H
 
 #include <climits>
 #include <cstdint>
@@ -7,7 +7,7 @@
 #include <unordered_map>
 #include <mutex>
 
-namespace laser::util {
+namespace ares::util {
 
 class Timeline {
   private:
@@ -76,6 +76,6 @@ class Timeline {
 // some private bool values. When this vals are set, get_end_time() should
 // always return ULLONG_MAX, or something.
 
-} // namespace util::laser
+} // namespace util::ares
 
-#endif // LASER_UTIL_TIMELINE_H
+#endif // ARES_UTIL_TIMELINE_H

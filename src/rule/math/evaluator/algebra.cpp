@@ -1,6 +1,6 @@
 #include "rule/math/evaluator/algebra.h"
 
-namespace laser::rule {
+namespace ares::rule {
 
 void Algebra::update_var_map_time_reference(
     std::unique_ptr<formula::Formula> const &formula) {
@@ -197,4 +197,4 @@ formula::MathOperator Algebra::get_operator() const { return math_operator; }
 
 EvaluatorType Algebra::get_evaluator_type() const { return evaluator_type; }
 
-} // namespace laser::rule
+} // namespace ares::rule

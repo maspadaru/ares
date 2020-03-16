@@ -1,6 +1,6 @@
 #include "rule/rule.h"
 
-namespace laser::rule {
+namespace ares::rule {
 
 Rule::Rule(std::unique_ptr<formula::Formula> body_formula,
            std::vector<std::unique_ptr<formula::Formula>> head_atoms)
@@ -308,4 +308,4 @@ std::vector<std::string> const &Rule::get_bound_variables() const {
     return bound_variables;
 }
 
-} // namespace laser::rule
+} // namespace ares::rule

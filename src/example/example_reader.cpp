@@ -1,6 +1,6 @@
 #include "example/example_reader.h"
 
-namespace laser {
+namespace ares {
 namespace example {
 
 bool ExampleReader::has_metadata() const {
@@ -17,7 +17,7 @@ uint64_t ExampleReader::get_stream_end_time() const {
 
 void ExampleReader::check_source() const {
     if (!has_source) {
-        throw laser::util::ReadException("Input source was not "
+        throw ares::util::ReadException("Input source was not "
                                               "initialized");
     }
 }
@@ -109,7 +109,7 @@ ExampleReader::read_next_data(uint64_t request_time_point) {
             } else {
                 // this should never happen, as it is already checked in
                 // InputManager and Program. But let's check anyway
-                throw laser::util::FormatException(
+                throw ares::util::FormatException(
                         "ExampleReader: out-of-order read. Most likely do to bad "
                         "format of input source");
             }
@@ -129,4 +129,4 @@ bool ExampleReader::fetch_metadata() {
 }
 
 } // namespace example 
-} // namespace laser
+} // namespace ares

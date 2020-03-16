@@ -1,6 +1,6 @@
 #include "util/grounding.h"
 
-namespace laser::util {
+namespace ares::util {
 
 Grounding::Grounding(std::string const &predicate, uint64_t consideration_time,
                      uint64_t horizon_time, uint64_t consideration_count,
@@ -259,4 +259,4 @@ bool Grounding::operator<(Grounding const &other) const {
     return substitution_less_than(other);
 }
 
-} // namespace laser::util
+} // namespace ares::util

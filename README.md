@@ -1,10 +1,11 @@
-# Laser++ 
+# ARES - A Reasoning Engine for Streams 
 
-**Laser++** is a C++ implementation of the [Laser](https://research.vu.nl/en/publications/expressive-stream-reasoning-with-laser) a stream reasoning engine 
+**ARES** started as a C++ implementation of the [Laser](https://research.vu.nl/en/publications/expressive-stream-reasoning-with-ares) a stream reasoning engine 
 based on the [LARS logic framework](http://www.kr.tuwien.ac.at/research/projects/dhsr/pub/2015/bdef2015-aaai.pdf)   
+It has since been extended to increase expresivity and allow existentialy quantified variables.  
 
 ### Prerequisites
-Laser++ requires:
+ARES requires:
 * C++ compiler compliant with C++17 standard (tested on GCC 7.3.0 and 
 Clang 6.0.0)
 * CMake (minimum version: 3.7, tested on 3.10)
@@ -13,21 +14,21 @@ Clang 6.0.0)
 
 ## Getting Started
 
-Interact with Laser++ by using the `laser.sh` script. 
+Interact with ARES by using the `ares.sh` script. 
 
-Build and test Laser++ by executing:
+Build and test ARES by executing:
 ```
-./laser.sh r 
+./ares.sh r 
 ```
 
 Run all test cases by executing:
 ```
-./laser.sh t 
+./ares.sh t 
 ```
 
 See all options by running:
 ```
-./laser.sh h 
+./ares.sh h 
 ```
 
 **Program**
@@ -52,7 +53,7 @@ Tuple Window: [#, size]
 Time reference: [@, time_variable]
 Conjunction: &&
 ```
-Please note that the head of a Laser++ rule is limited to conjunctions of atomic 
+Please note that the head of a ARES rule is limited to conjunctions of atomic 
 and time reference formulas.
 Example program:
 ```
@@ -82,7 +83,7 @@ Example input stream:
 ```
 
 ### Project organization
-The code of Laser++ can be found in directories **include** (header files) and 
+The code of ARES can be found in directories **include** (header files) and 
 **src** (C++ source files). 
 The project is divided in 4 modules (*core*, *rule*, *forumula*, 
 *util*). Each module can be found in a dedicated sub-directory of *include*
@@ -94,11 +95,11 @@ The directory **test** contains contains some test cases which can be found in
 hardcoded programs on hard-coded input. The source-code of this application can 
 be found in *test/main.cpp*.
 
-### Laser++ modules: (!outdated)
+### ARES modules: (!outdated)
 
-**Core** - handles input-output as well as execution of the Laser++ program. 
+**Core** - handles input-output as well as execution of the ARES program. 
 
-**Rule** - parses laser programs and evaluates the rules on the input facts
+**Rule** - parses ARES programs and evaluates the rules on the input facts
 provided by the stream. 
 
 **Formula** - Evaluates the different formulas found in the program and stores
@@ -106,34 +107,34 @@ the result.
 
 **Util** - Contains classes useful in other modules such as exceptions, timeline.
 Instances of the Grounding class present in this module are used as the basic 
-block of data throughout the Laser++ reasoning engine. It is used to represent
+block of data throughout the ARES reasoning engine. It is used to represent
 such data as input facts, output conclusions or store annotated groudings of 
 formulas present in the program being evaluated. 
 
-### Implementing reasoner applications using the  Laser++ engine
+### Implementing reasoner applications using the  ARES engine
 
-Laser++ is a reasoning engine that can be used to implement systems capable of
+ARES is a reasoning engine that can be used to implement systems capable of
 real-time semantic inference on stream of data. 
 
 In order to implement a reasoning application, the user need only to implement 
 the 
-`laser::core::IOManager` interface found in 
+`ares::core::IOManager` interface found in 
 *include/core/io_manager.h*. This 
 implementation should reflect the application specific needs regarding reading
 and parsing of the input stream, as well as formatting and writing of the output
 stream. An example of such an implementation can be found in the folder 
 *include/example* and *src/example*.  
 
-Laser comes with a built in *RuleParser* class found in the _rule_ module. 
+ARES comes with a built in *RuleParser* class found in the _rule_ module. 
 If the application requires a diferent syntax for expressing logic rules, 
 users can implement their own rule parser instead.
 
 Once the *IOManager* interface is implemented, 
-an application can use the Laser++
-reasoning engine by constructing an instance of the `laser::core::Reasoner` class
+an application can use the ARES 
+reasoning engine by constructing an instance of the `ares::core::Reasoner` class
 found in *include/core/reasoner.h* and *src/core/reasoner.cpp* respectively.
 
-Laser stores global settings in the `laser::util::Settings` class.
+ARES stores global settings in the `ares::util::Settings` class.
 The class includes settings such as the chase algorithm used to materialize 
 existentially quantified values. 
 This settings should be set before parsing the rules and intantiating the 
@@ -144,16 +145,16 @@ _Reasoner_ class.
 
 ### Debuging
 
-Laser++ comes with a testing application. 
+ARES comes with a testing application. 
 The source code for this application can be found in the directory 
 *test/* and can be executed by running:
 ```
-./laser.sh r 
+./ares.sh r 
 ```
 
-The test application runs a series of hardcoded Laser programs on hardcoded input.
-This is useful for debuging, as a specific Laser program can be run in GDB. 
+The test application runs a series of hardcoded ARES programs on hardcoded input.
+This is useful for debuging, as a specific ARES program can be run in GDB. 
 Simply edit the code in *test/main.cpp*, build and execute:
 ```
-./laser.sh d 
+./ares.sh d 
 ```

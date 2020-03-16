@@ -1,6 +1,6 @@
 #include "formula/extended/tuple_window.h"
 
-namespace laser::formula {
+namespace ares::formula {
 
 TupleWindow::TupleWindow(uint64_t size, std::unique_ptr<formula::Formula> child)
     : child(std::move(child)) {
@@ -146,4 +146,4 @@ TupleWindow::get_children() const {
 
 uint64_t TupleWindow::get_window_size() const { return past_size; }
 
-} // namespace laser::formula
+} // namespace ares::formula

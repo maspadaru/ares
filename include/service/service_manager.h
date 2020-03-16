@@ -1,5 +1,5 @@
-#ifndef LASER_SERVICE_SERVICE_MANAGER_H
-#define LASER_SERVICE_SERVICE_MANAGER_H
+#ifndef ARES_SERVICE_SERVICE_MANAGER_H
+#define ARES_SERVICE_SERVICE_MANAGER_H
 
 #include <fstream>
 #include <iostream>
@@ -11,7 +11,7 @@
 #include "service/request_parser.h"
 #include "service/request_type.h"
 
-namespace laser {
+namespace ares {
 namespace service {
 
 class ServiceManager {
@@ -40,6 +40,6 @@ class ServiceManager {
 };
 
 } // namespace service
-} // namespace laser
+} // namespace ares
 
-#endif // LASER_SERVICE_SERVICE_MANAGER_H
+#endif // ARES_SERVICE_SERVICE_MANAGER_H

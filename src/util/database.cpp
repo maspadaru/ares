@@ -1,6 +1,6 @@
 #include "util/database.h"
 
-namespace laser {
+namespace ares {
 namespace util {
 
 void Database::clear() {
@@ -99,4 +99,4 @@ Database::get_inertia_predicate_data(std::string const &predicate) {
 size_t Database::get_step() const { return current_step; }
 
 } // namespace util
-} // namespace laser
+} // namespace ares

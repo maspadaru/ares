@@ -1,5 +1,5 @@
-#ifndef LASER_SERVICE_REQUEST_PARSER_H
-#define LASER_SERVICE_REQUEST_PARSER_H
+#ifndef ARES_SERVICE_REQUEST_PARSER_H
+#define ARES_SERVICE_REQUEST_PARSER_H
 
 #include <memory>
 #include <set>
@@ -13,7 +13,7 @@
 #include "service/request.h"
 #include "util/format_exception.h"
 
-namespace laser {
+namespace ares {
 namespace service {
 
 class RequestParser {
@@ -49,14 +49,14 @@ class RequestParser {
     std::string parse_argument();
     std::string parse_float_argument();
 
-    std::unique_ptr<laser::formula::Formula> parse_predicate_atom();
+    std::unique_ptr<ares::formula::Formula> parse_predicate_atom();
 
     // ================
 
     std::vector<std::shared_ptr<util::Grounding>> const &database_facts;
 
     std::set<std::string> parse_variable_list();
-    std::vector<std::unique_ptr<laser::formula::Formula>> parse_atom_vector();
+    std::vector<std::unique_ptr<ares::formula::Formula>> parse_atom_vector();
     std::stringstream input;
     std::unique_ptr<Request> parse_query();
 
@@ -77,6 +77,6 @@ class RequestParser {
 };
 
 } // namespace service
-} // namespace laser
+} // namespace ares
 
-#endif // LASER_SERVICE_REQUEST_PARSER_H
+#endif // ARES_SERVICE_REQUEST_PARSER_H

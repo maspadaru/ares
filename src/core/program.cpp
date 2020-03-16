@@ -1,19 +1,19 @@
 #include "core/program.h"
 
-namespace laser::core {
+namespace ares::core {
 
 Program::~Program() {
     simple_rule_vector.clear();
     existential_rule_vector.clear();
 }
 
-Program::Program(std::vector<std::unique_ptr<laser::rule::Rule>> &rule_vector) {
+Program::Program(std::vector<std::unique_ptr<ares::rule::Rule>> &rule_vector) {
     // auto rule_vector = rule_reader->get_rules();
     sort_rules(rule_vector);
 }
 
 void Program::sort_rules(
-    std::vector<std::unique_ptr<laser::rule::Rule>> &rule_vector) {
+    std::vector<std::unique_ptr<ares::rule::Rule>> &rule_vector) {
     for (auto &rule : rule_vector) {
         if (rule->is_existential()) {
             existential_rule_vector.push_back(std::move(rule));
@@ -61,7 +61,7 @@ void Program::chase_evaluation() {
 }
 
 bool Program::evaluate_rule_vector(
-    std::vector<std::unique_ptr<laser::rule::Rule>> &rule_vector, size_t step) {
+        std::vector<std::unique_ptr<ares::rule::Rule>> &rule_vector, size_t step) {
     bool changed = false;
     for (auto &rule : rule_vector) {
         changed |= evaluate_rule(*rule, step);
@@ -152,4 +152,4 @@ std::vector<double> const &Program::get_runtimes() const {
     return runtimes;
 }
 
-} // namespace laser::core
+} // namespace ares::core

@@ -1,5 +1,5 @@
-#ifndef LASER_RULE_MATH_EVALUATOR_ASSIGNMENT_H
-#define LASER_RULE_MATH_EVALUATOR_ASSIGNMENT_H
+#ifndef ARES_RULE_MATH_EVALUATOR_ASSIGNMENT_H
+#define ARES_RULE_MATH_EVALUATOR_ASSIGNMENT_H
 
 #include <map>
 #include <memory>
@@ -16,7 +16,7 @@
 #include "util/shared.h"
 #include "util/timeline.h"
 
-namespace laser::rule {
+namespace ares::rule {
 
 class Assignment : public Evaluator {
   private:
@@ -49,6 +49,6 @@ class Assignment : public Evaluator {
     get_groundings() override;
 };
 
-} // namespace laser::rule
+} // namespace ares::rule
 
-#endif // LASER_RULE_MATH_EVALUATOR_ASSIGNMENT_H
+#endif // ARES_RULE_MATH_EVALUATOR_ASSIGNMENT_H

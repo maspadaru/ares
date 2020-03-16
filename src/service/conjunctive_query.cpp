@@ -1,6 +1,6 @@
 #include "service/conjunctive_query.h"
 
-namespace laser {
+namespace ares {
 namespace service {
 
 std::string ConjunctiveQuery::evaluate() {
@@ -24,4 +24,4 @@ std::vector<std::shared_ptr<util::Grounding>> ConjunctiveQuery::build_result_vec
 }
 
 } // namespace service
-} // namespace laser
+} // namespace ares

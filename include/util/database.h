@@ -7,7 +7,7 @@
 
 #include "util/grounding.h"
 
-namespace laser {
+namespace ares {
 namespace util {
 
 class Database {
@@ -55,6 +55,6 @@ class Database {
 };
 
 } // namespace util
-} // namespace laser
+} // namespace ares
 
 #endif // LASER_UTIL_DATABASE_H

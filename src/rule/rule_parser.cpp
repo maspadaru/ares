@@ -1,6 +1,6 @@
 #include "rule/rule_parser.h"
 
-namespace laser::rule {
+namespace ares::rule {
 
 RuleParser::RuleParser(std::string rule_string)
     : rule_string(std::move(rule_string)) {}
@@ -197,8 +197,8 @@ std::string RuleParser::parse_float_argument() {
     return parse_float();
 }
 
-std::vector<std::unique_ptr<laser::rule::Rule>> RuleParser::parse_program() {
-    std::vector<std::unique_ptr<laser::rule::Rule>> result;
+std::vector<std::unique_ptr<ares::rule::Rule>> RuleParser::parse_program() {
+    std::vector<std::unique_ptr<ares::rule::Rule>> result;
     std::stringstream program_stream;
     program_stream.str(rule_string);
     std::string line;
@@ -213,7 +213,7 @@ std::vector<std::unique_ptr<laser::rule::Rule>> RuleParser::parse_program() {
     return result;
 }
 
-std::unique_ptr<laser::rule::Rule> RuleParser::parse_rule() {
+std::unique_ptr<ares::rule::Rule> RuleParser::parse_rule() {
     inertia_variables.clear();
     auto head = parse_head();
     skip_spaces();
@@ -221,17 +221,17 @@ std::unique_ptr<laser::rule::Rule> RuleParser::parse_rule() {
     skip_expected_char('=');
     auto body = parse_body();
     parse_eoln();
-    auto result = std::make_unique<laser::rule::Rule>(
+    auto result = std::make_unique<ares::rule::Rule>(
         std::move(body), std::move(head), std::move(inertia_variables));
     return std::move(result);
 }
 
-std::vector<std::unique_ptr<laser::formula::Formula>> RuleParser::parse_head() {
+std::vector<std::unique_ptr<ares::formula::Formula>> RuleParser::parse_head() {
     return parse_formula_vector();
 }
-std::unique_ptr<laser::formula::Formula>
+std::unique_ptr<ares::formula::Formula>
 RuleParser::parse_extended_head_atom() {
-    std::unique_ptr<laser::formula::Formula> result;
+    std::unique_ptr<ares::formula::Formula> result;
     if (is_next_char('@')) {
         result = parse_time_reference();
     } else if (is_next_char('I')) {
@@ -240,8 +240,8 @@ RuleParser::parse_extended_head_atom() {
     return result;
 }
 
-std::unique_ptr<laser::formula::Formula> RuleParser::parse_head_atom() {
-    std::unique_ptr<laser::formula::Formula> result;
+std::unique_ptr<ares::formula::Formula> RuleParser::parse_head_atom() {
+    std::unique_ptr<ares::formula::Formula> result;
     skip_spaces();
     if (is_next_char('[')) {
         skip_next_char();
@@ -254,8 +254,8 @@ std::unique_ptr<laser::formula::Formula> RuleParser::parse_head_atom() {
     return result;
 }
 
-std::unique_ptr<laser::formula::Formula> RuleParser::parse_body() {
-    std::unique_ptr<laser::formula::Formula> result;
+std::unique_ptr<ares::formula::Formula> RuleParser::parse_body() {
+    std::unique_ptr<ares::formula::Formula> result;
     skip_spaces();
     if (is_next_char('(')) {
         result = parse_complex_formula();
@@ -265,7 +265,7 @@ std::unique_ptr<laser::formula::Formula> RuleParser::parse_body() {
     return result;
 }
 
-std::unique_ptr<laser::formula::Formula> RuleParser::parse_complex_formula() {
+std::unique_ptr<ares::formula::Formula> RuleParser::parse_complex_formula() {
     skip_expected_char('(');
     auto result = parse_binary_formula();
     skip_spaces();
@@ -273,7 +273,7 @@ std::unique_ptr<laser::formula::Formula> RuleParser::parse_complex_formula() {
     return result;
 }
 
-std::unique_ptr<laser::formula::Formula> RuleParser::parse_binary_formula() {
+std::unique_ptr<ares::formula::Formula> RuleParser::parse_binary_formula() {
     auto left_term = parse_term();
     skip_spaces();
     while (is_next_char_binary_operator()) {
@@ -287,9 +287,9 @@ std::unique_ptr<laser::formula::Formula> RuleParser::parse_binary_formula() {
     return left_term;
 }
 
-std::vector<std::unique_ptr<laser::formula::Formula>>
+std::vector<std::unique_ptr<ares::formula::Formula>>
 RuleParser::parse_formula_vector() {
-    std::vector<std::unique_ptr<laser::formula::Formula>> result;
+    std::vector<std::unique_ptr<ares::formula::Formula>> result;
     auto new_atom = parse_head_atom();
     if (new_atom != nullptr) {
         result.push_back(std::move(new_atom));
@@ -306,12 +306,12 @@ RuleParser::parse_formula_vector() {
     return result;
 }
 
-std::unique_ptr<laser::formula::Formula> RuleParser::parse_binary_operator() {
-    std::unique_ptr<laser::formula::Formula> result;
+std::unique_ptr<ares::formula::Formula> RuleParser::parse_binary_operator() {
+    std::unique_ptr<ares::formula::Formula> result;
     if (is_next_char('&')) {
         skip_expected_char('&');
         skip_expected_char('&');
-        result = std::make_unique<laser::formula::Conjunction>();
+        result = std::make_unique<ares::formula::Conjunction>();
     }
     // else {
     // skip_expected_char('|');
@@ -321,8 +321,8 @@ std::unique_ptr<laser::formula::Formula> RuleParser::parse_binary_operator() {
     return result;
 }
 
-std::unique_ptr<laser::formula::Formula> RuleParser::parse_term() {
-    std::unique_ptr<laser::formula::Formula> result;
+std::unique_ptr<ares::formula::Formula> RuleParser::parse_term() {
+    std::unique_ptr<ares::formula::Formula> result;
     skip_spaces();
     if (is_next_char('(')) {
         result = parse_complex_formula();
@@ -334,8 +334,8 @@ std::unique_ptr<laser::formula::Formula> RuleParser::parse_term() {
     return result;
 }
 
-std::unique_ptr<laser::formula::Formula> RuleParser::parse_atom() {
-    std::unique_ptr<laser::formula::Formula> result;
+std::unique_ptr<ares::formula::Formula> RuleParser::parse_atom() {
+    std::unique_ptr<ares::formula::Formula> result;
     skip_spaces();
     if (is_next_char_algebra_operator()) {
         result = parse_algebra_atom();
@@ -372,46 +372,46 @@ std::vector<std::string> RuleParser::parse_argument_vector() {
     return std::move(argument_vector);
 }
 
-std::unique_ptr<laser::formula::Formula> RuleParser::parse_predicate_atom() {
+std::unique_ptr<ares::formula::Formula> RuleParser::parse_predicate_atom() {
     auto predicate = parse_identifier();
     auto argument_vector = parse_argument_vector();
-    return std::make_unique<laser::formula::Atom>(std::move(predicate),
-                                                  std::move(argument_vector));
+    return std::make_unique<ares::formula::Atom>(std::move(predicate),
+                                                 std::move(argument_vector));
 }
 
-std::unique_ptr<laser::formula::Formula> RuleParser::parse_assignment_atom() {
+std::unique_ptr<ares::formula::Formula> RuleParser::parse_assignment_atom() {
     auto predicate = parse_assignment_operator();
     auto argument_vector = parse_argument_vector();
     if (argument_vector.size() != 2) {
         syntax_error("Not a valid assignment. Expected exactly 2 arguments");
     }
-    return std::make_unique<laser::formula::Math>(std::move(predicate),
-                                                  std::move(argument_vector));
+    return std::make_unique<ares::formula::Math>(std::move(predicate),
+                                                 std::move(argument_vector));
 }
 
-std::unique_ptr<laser::formula::Formula> RuleParser::parse_condition_atom() {
+std::unique_ptr<ares::formula::Formula> RuleParser::parse_condition_atom() {
     auto predicate = parse_condition_operator();
     auto argument_vector = parse_argument_vector();
     if (argument_vector.size() != 2) {
         syntax_error(
             "Not a valid condition atom. Expected exactly 2 arguments");
     }
-    return std::make_unique<laser::formula::Math>(std::move(predicate),
-                                                  std::move(argument_vector));
+    return std::make_unique<ares::formula::Math>(std::move(predicate),
+                                                 std::move(argument_vector));
 }
 
-std::unique_ptr<laser::formula::Formula> RuleParser::parse_algebra_atom() {
+std::unique_ptr<ares::formula::Formula> RuleParser::parse_algebra_atom() {
     auto predicate = parse_algebra_operator();
     auto argument_vector = parse_argument_vector();
     if (argument_vector.size() != 3) {
         syntax_error("Not a valid algebra atom. Expected exactly 3 arguments");
     }
-    return std::make_unique<laser::formula::Math>(std::move(predicate),
-                                                  std::move(argument_vector));
+    return std::make_unique<ares::formula::Math>(std::move(predicate),
+                                                 std::move(argument_vector));
 }
 
-std::unique_ptr<laser::formula::Formula> RuleParser::parse_unary_formula() {
-    std::unique_ptr<laser::formula::Formula> result;
+std::unique_ptr<ares::formula::Formula> RuleParser::parse_unary_formula() {
+    std::unique_ptr<ares::formula::Formula> result;
     skip_expected_char('[');
     skip_spaces();
     char unary_operator = peek_next_char();
@@ -440,29 +440,29 @@ std::unique_ptr<laser::formula::Formula> RuleParser::parse_unary_formula() {
     return result;
 }
 
-std::unique_ptr<laser::formula::Formula> RuleParser::parse_diamond() {
+std::unique_ptr<ares::formula::Formula> RuleParser::parse_diamond() {
     skip_expected_char('D');
     skip_spaces();
     skip_expected_char(']');
     auto child = parse_term();
-    return std::make_unique<laser::formula::Diamond>(std::move(child));
+    return std::make_unique<ares::formula::Diamond>(std::move(child));
 }
 
-std::unique_ptr<laser::formula::Formula> RuleParser::parse_box() {
+std::unique_ptr<ares::formula::Formula> RuleParser::parse_box() {
     skip_expected_char('B');
     skip_spaces();
     skip_expected_char(']');
     auto child = parse_term();
-    return std::make_unique<laser::formula::Box>(std::move(child));
+    return std::make_unique<ares::formula::Box>(std::move(child));
 }
 
-std::unique_ptr<laser::formula::Formula> RuleParser::parse_negation() {
+std::unique_ptr<ares::formula::Formula> RuleParser::parse_negation() {
     // TODO
-    return std::make_unique<laser::formula::Atom>("TODO");
+    return std::make_unique<ares::formula::Atom>("TODO");
 }
 
-std::unique_ptr<laser::formula::Formula> RuleParser::parse_inertia_operator() {
-    std::unique_ptr<laser::formula::Formula> result;
+std::unique_ptr<ares::formula::Formula> RuleParser::parse_inertia_operator() {
+    std::unique_ptr<ares::formula::Formula> result;
     skip_expected_char('I');
     skip_spaces();
     skip_expected_char(',');
@@ -475,7 +475,7 @@ std::unique_ptr<laser::formula::Formula> RuleParser::parse_inertia_operator() {
     return result;
 }
 
-std::unique_ptr<laser::formula::Formula> RuleParser::parse_time_reference() {
+std::unique_ptr<ares::formula::Formula> RuleParser::parse_time_reference() {
     skip_expected_char('@');
     skip_spaces();
     skip_expected_char(',');
@@ -484,11 +484,11 @@ std::unique_ptr<laser::formula::Formula> RuleParser::parse_time_reference() {
     skip_spaces();
     skip_expected_char(']');
     auto child = parse_term();
-    return std::make_unique<laser::formula::TimeReference>(argument,
-                                                           std::move(child));
+    return std::make_unique<ares::formula::TimeReference>(argument,
+                                                          std::move(child));
 }
 
-std::unique_ptr<laser::formula::Formula> RuleParser::parse_time_window() {
+std::unique_ptr<ares::formula::Formula> RuleParser::parse_time_window() {
     skip_expected_char('$');
     skip_spaces();
     skip_expected_char(',');
@@ -498,11 +498,11 @@ std::unique_ptr<laser::formula::Formula> RuleParser::parse_time_window() {
     skip_expected_char(']');
     auto child = parse_term();
     uint64_t window_size = std::stoull(argument);
-    return std::make_unique<laser::formula::TimeWindow>(window_size,
-                                                        std::move(child));
+    return std::make_unique<ares::formula::TimeWindow>(window_size,
+                                                       std::move(child));
 }
 
-std::unique_ptr<laser::formula::Formula> RuleParser::parse_tuple_window() {
+std::unique_ptr<ares::formula::Formula> RuleParser::parse_tuple_window() {
     skip_expected_char('#');
     skip_spaces();
     skip_expected_char(',');
@@ -512,12 +512,12 @@ std::unique_ptr<laser::formula::Formula> RuleParser::parse_tuple_window() {
     skip_expected_char(']');
     auto child = parse_term();
     uint64_t window_size = std::stoull(argument);
-    return std::make_unique<laser::formula::TupleWindow>(window_size,
-                                                         std::move(child));
+    return std::make_unique<ares::formula::TupleWindow>(window_size,
+                                                        std::move(child));
 }
 
-std::vector<std::unique_ptr<laser::rule::Rule>> RuleParser::get_rules() {
+std::vector<std::unique_ptr<ares::rule::Rule>> RuleParser::get_rules() {
     return parse_program();
 }
 
-} // namespace laser::rule
+} // namespace ares::rule

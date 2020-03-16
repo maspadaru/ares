@@ -24,7 +24,7 @@ TEST(SkolemChaseTest, SkolemSimple) {
     expected[4] = "4 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::SKOLEM);
+                             ares::util::ChaseAlgorithm::SKOLEM);
 }
 
 TEST(SkolemChaseTest, SkolemSimpleNoInertia) {
@@ -41,7 +41,7 @@ TEST(SkolemChaseTest, SkolemSimpleNoInertia) {
     expected[3] = "3 -> p(a4, z1, b5, x1, z1)";
     expected[4] = "4 -> ";
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::SKOLEM);
+                             ares::util::ChaseAlgorithm::SKOLEM);
 }
 
 TEST(SkolemChaseTest, SkolemInertiaFull) {
@@ -67,7 +67,7 @@ TEST(SkolemChaseTest, SkolemInertiaFull) {
     expected[7] = "7 -> p(a8, z2, b9, x2, z2)";
     expected[8] = "8 -> ";
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::SKOLEM);
+                             ares::util::ChaseAlgorithm::SKOLEM);
 }
 
 TEST(SkolemChaseTest, SkolemInertiaPartial) {
@@ -93,7 +93,7 @@ TEST(SkolemChaseTest, SkolemInertiaPartial) {
     expected[7] = "7 -> p(a9, z2, b10, x1, z2)";
     expected[8] = "8 -> ";
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::SKOLEM);
+                             ares::util::ChaseAlgorithm::SKOLEM);
 }
 
 TEST(SkolemChaseTest, SkolemTimeRefHead) {
@@ -118,7 +118,7 @@ TEST(SkolemChaseTest, SkolemTimeRefHead) {
     expected[4] = "4 -> shutdown(sg3, alert1)";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::SKOLEM);
+                             ares::util::ChaseAlgorithm::SKOLEM);
 }
 
 TEST(SkolemChaseTest, SkolemTimeRefBody1) {
@@ -143,7 +143,7 @@ TEST(SkolemChaseTest, SkolemTimeRefBody1) {
     expected[4] = "4 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::SKOLEM);
+                             ares::util::ChaseAlgorithm::SKOLEM);
 }
 
 TEST(SkolemChaseTest, SkolemTimeRefBody2) {
@@ -168,7 +168,7 @@ TEST(SkolemChaseTest, SkolemTimeRefBody2) {
     expected[4] = "4 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::SKOLEM);
+                             ares::util::ChaseAlgorithm::SKOLEM);
 }
 
 TEST(SkolemChaseTest, SkolemTimeRefHandB) {
@@ -193,7 +193,7 @@ TEST(SkolemChaseTest, SkolemTimeRefHandB) {
     expected[4] = "4 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::SKOLEM);
+                             ares::util::ChaseAlgorithm::SKOLEM);
 }
 
 TEST(SkolemChaseTest, SkolemConjunctionTwo) {
@@ -213,7 +213,7 @@ TEST(SkolemChaseTest, SkolemConjunctionTwo) {
     expected[4] = "4 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::SKOLEM);
+                             ares::util::ChaseAlgorithm::SKOLEM);
 }
 
 TEST(SkolemChaseTest, SkolemConjunctionThree) {
@@ -233,5 +233,5 @@ TEST(SkolemChaseTest, SkolemConjunctionThree) {
     expected[4] = "4 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::SKOLEM);
+                             ares::util::ChaseAlgorithm::SKOLEM);
 }

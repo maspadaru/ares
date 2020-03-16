@@ -24,7 +24,7 @@ TEST(BoxTest, BoxAtom) {
                                 "14 : f(1), f(a)\n";
     std::string rule_string = "q(X) := [B] f(X)\n"
                               "r(Y,X) := [$, 3][B]c(X, Y)\n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> q(a) q(1) r(b, a)";

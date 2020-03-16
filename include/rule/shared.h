@@ -1,5 +1,5 @@
-#ifndef LASER_RULE_SHARED_H
-#define LASER_RULE_SHARED_H
+#ifndef ARES_RULE_SHARED_H
+#define ARES_RULE_SHARED_H
 
 #include <cstdint>
 #include <memory>
@@ -10,7 +10,7 @@
 #include "util/grounding.h"
 #include "util/timeline.h"
 
-namespace laser {
+namespace ares {
 namespace rule {
 namespace shared {
 
@@ -22,6 +22,6 @@ make_ordered_index(std::vector<std::string> const &vector);
 
 } // namespace shared
 } // namespace rule
-} // namespace laser
+} // namespace ares
 
-#endif // LASER_RULE_SHARED_H
+#endif // ARES_RULE_SHARED_H

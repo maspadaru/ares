@@ -1,9 +1,5 @@
-//
-// Created by mike on 6/21/18.
-//
-
-#ifndef LASER_EXAMPLE_EXAMPLE_PARSER_H
-#define LASER_EXAMPLE_EXAMPLE_PARSER_H
+#ifndef ARES_EXAMPLE_EXAMPLE_PARSER_H
+#define ARES_EXAMPLE_EXAMPLE_PARSER_H
 
 #include <algorithm>
 #include <memory>
@@ -17,7 +13,7 @@
 #include <util/grounding.h>
 #include <util/timeline.h>
 
-namespace laser {
+namespace ares {
 namespace example {
 
 enum class TokenType {
@@ -46,7 +42,7 @@ class ExampleParser {
   private:
     uint64_t current_tuple_counter = 0;
 
-    std::vector<std::shared_ptr<laser::util::Grounding>> argument_stack;
+    std::vector<std::shared_ptr<ares::util::Grounding>> argument_stack;
 
     Token recognize(std::string token_string) const;
 
@@ -58,19 +54,19 @@ class ExampleParser {
     void add_new_token(std::vector<Token> &token_vector, TokenType type,
                        char value_char) const;
 
-    std::vector<std::shared_ptr<laser::util::Grounding>>
-    parse_token_vector(laser::util::Timeline const &timeline,
+    std::vector<std::shared_ptr<ares::util::Grounding>>
+    parse_token_vector(ares::util::Timeline const &timeline,
                        std::vector<Token> const &input_token_vector);
 
   public:
     ~ExampleParser() = default;
 
-    std::vector<std::shared_ptr<laser::util::Grounding>>
-    parse_data(laser::util::Timeline &timeline,
+    std::vector<std::shared_ptr<ares::util::Grounding>>
+    parse_data(ares::util::Timeline &timeline,
                std::vector<std::string> &raw_data_vector);
 };
 
 } // namespace example
-} // namespace laser
+} // namespace ares
 
-#endif // LASER_EXAMPLE_EXAMPLE_PARSER_H
+#endif // ARES_EXAMPLE_EXAMPLE_PARSER_H

@@ -1,5 +1,5 @@
-#ifndef LASER_UTIL_GROUNDING_H
-#define LASER_UTIL_GROUNDING_H
+#ifndef ARES_UTIL_GROUNDING_H
+#define ARES_UTIL_GROUNDING_H
 
 #include <climits>
 #include <functional>
@@ -11,7 +11,7 @@
 #include <utility>
 #include <vector>
 
-namespace laser::util {
+namespace ares::util {
 
 /**
  * Annotated Fact (_alpha_-_sigma_)
@@ -216,8 +216,8 @@ struct GroundingPredicateSubstitutionCompare {
     }
 };
 
-} // namespace laser::util
+} // namespace ares::util
 
-#endif // LASER_UTIL_GROUNDING_H
+#endif // ARES_UTIL_GROUNDING_H
 
     

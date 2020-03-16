@@ -1,5 +1,5 @@
-#ifndef LASER_FORMULA_FORMULA_H
-#define LASER_FORMULA_FORMULA_H
+#ifndef ARES_FORMULA_FORMULA_H
+#define ARES_FORMULA_FORMULA_H
 
 #include <map>
 #include <memory>
@@ -11,7 +11,7 @@
 #include "util/grounding.h"
 #include "util/timeline.h"
 
-namespace laser::formula {
+namespace ares::formula {
 
 /**
  * Formula Interface
@@ -84,6 +84,6 @@ class Formula {
     get_conclusions_timepoint(util::Timeline const &timeline) = 0;
 };
 
-} // namespace laser::formula
+} // namespace ares::formula
 
-#endif // LASER_FORMULA_FORMULA_H
+#endif // ARES_FORMULA_FORMULA_H

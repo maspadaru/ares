@@ -1,5 +1,5 @@
-#ifndef LASER_SERVICE_QUERY_H
-#define LASER_SERVICE_QUERY_H
+#ifndef ARES_SERVICE_QUERY_H
+#define ARES_SERVICE_QUERY_H
 
 #include <set>
 #include <string>
@@ -10,7 +10,7 @@
 #include "service/request_type.h"
 #include "util/grounding.h"
 
-namespace laser {
+namespace ares {
 namespace service {
 
 class Query : public Request {
@@ -51,6 +51,6 @@ class Query : public Request {
 };
 
 } // namespace service
-} // namespace laser
+} // namespace ares
 
-#endif // LASER_SERVICE_QUERY_H
+#endif // ARES_SERVICE_QUERY_H

@@ -1,10 +1,10 @@
-#ifndef LASER_RULE_MATH_EVALUATOR_VALUE_NODE_H
-#define LASER_RULE_MATH_EVALUATOR_VALUE_NODE_H
+#ifndef ARES_RULE_MATH_EVALUATOR_VALUE_NODE_H
+#define ARES_RULE_MATH_EVALUATOR_VALUE_NODE_H
 
 #include <string>
 #include <set>
 
-namespace laser::rule {
+namespace ares::rule {
 
 struct value_node {
     bool is_numeric = false;
@@ -25,6 +25,6 @@ struct value_node_compare {
 
 using value_set = std::set<value_node, value_node_compare>;
 
-} // namespace laser::rule
+} // namespace ares::rule
 
-#endif // LASER_RULE_MATH_EVALUATOR_VALUE_NODE_H
+#endif // ARES_RULE_MATH_EVALUATOR_VALUE_NODE_H

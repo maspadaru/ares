@@ -1,5 +1,5 @@
-#ifndef LASER_CORE_PROGRAM_H
-#define LASER_CORE_PROGRAM_H
+#ifndef ARES_CORE_PROGRAM_H
+#define ARES_CORE_PROGRAM_H
 
 #include <iostream>
 #include <memory>
@@ -12,12 +12,12 @@
 #include "util/database.h"
 #include "util/timeline.h"
 
-namespace laser::core {
+namespace ares::core {
 
 class Program {
   private:
-    std::vector<std::unique_ptr<laser::rule::Rule>> simple_rule_vector;
-    std::vector<std::unique_ptr<laser::rule::Rule>> existential_rule_vector;
+    std::vector<std::unique_ptr<ares::rule::Rule>> simple_rule_vector;
+    std::vector<std::unique_ptr<ares::rule::Rule>> existential_rule_vector;
     util::Timeline timeline;
     util::Database database;
     std::vector<std::shared_ptr<util::Grounding>> new_conclusions;
@@ -25,10 +25,10 @@ class Program {
 
     void chase_evaluation();
     void
-    sort_rules(std::vector<std::unique_ptr<laser::rule::Rule>> &rule_vector);
+    sort_rules(std::vector<std::unique_ptr<ares::rule::Rule>> &rule_vector);
     void reset_rules();
     bool evaluate_rule_vector(
-        std::vector<std::unique_ptr<laser::rule::Rule>> &rule_vector,
+        std::vector<std::unique_ptr<ares::rule::Rule>> &rule_vector,
         size_t step);
     bool evaluate_rule(rule::Rule &rule, size_t step);
     std::vector<std::shared_ptr<util::Grounding>> get_conclusions();
@@ -41,7 +41,7 @@ class Program {
 
   public:
     explicit Program(
-        std::vector<std::unique_ptr<laser::rule::Rule>> &rule_vector);
+        std::vector<std::unique_ptr<ares::rule::Rule>> &rule_vector);
 
     virtual ~Program();
 
@@ -62,6 +62,6 @@ class Program {
     std::vector<double> const &get_runtimes() const;
 };
 
-} // namespace laser::core
+} // namespace ares::core
 
-#endif // LASER_CORE_PROGRAM_H
+#endif // ARES_CORE_PROGRAM_H

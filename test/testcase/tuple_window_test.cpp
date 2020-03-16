@@ -42,7 +42,7 @@ TEST(TupleWindowTest, SimpleDiamond) {
     expected[14] = "14 -> u(z)";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }
 
 TEST(TupleWindowTest, SimpleBox) {
@@ -93,7 +93,7 @@ TEST(TupleWindowTest, SimpleBox) {
     expected[14] = "14 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }
 
 TEST(TupleWindowTest, MultipleRules) {
@@ -140,5 +140,5 @@ TEST(TupleWindowTest, MultipleRules) {
     expected[14] = "14 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }

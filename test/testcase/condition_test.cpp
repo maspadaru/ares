@@ -13,7 +13,7 @@ TEST(ConditionTest, ConditionEqual) {
                                 "3 : p(47), p(100), p(300)\n"
                                 "4 : \n";
     std::string rule_string = "q(X) := p(X) && ?=(X, C) && =(C,100) \n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> q(100)";
@@ -30,7 +30,7 @@ TEST(ConditionTest, ConditionNotEqual) {
                                 "3 : p(47), p(100), p(300)\n"
                                 "4 : \n";
     std::string rule_string = "q(X) := p(X) && !=(X, C) && =(C,100) \n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> q(101) q(99)";
@@ -47,7 +47,7 @@ TEST(ConditionTest, ConditionGreather) {
                                 "3 : p(47), p(100), p(300)\n"
                                 "4 : \n";
     std::string rule_string = "q(X) := p(X) && >(X, C) && =(C,100) \n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> q(101)";
@@ -64,7 +64,7 @@ TEST(ConditionTest, ConditionGreatherEqual) {
                                 "3 : p(47), p(100), p(300)\n"
                                 "4 : \n";
     std::string rule_string = "q(X) := p(X) && >=(X, C) && =(C,100) \n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> q(100) q(101)";
@@ -81,7 +81,7 @@ TEST(ConditionTest, ConditionLesser) {
                                 "3 : p(47), p(100), p(300)\n"
                                 "4 : \n";
     std::string rule_string = "q(X) := p(X) && <(X, C) && =(C,100) \n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> q(99)";
@@ -98,7 +98,7 @@ TEST(ConditionTest, ConditionLesserEqual) {
                                 "3 : p(47), p(100), p(300)\n"
                                 "4 : \n";
     std::string rule_string = "q(X) := p(X) && <=(X, C) && =(C,100) \n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> q(99) q(100)";
@@ -121,7 +121,7 @@ TEST(ConditionTest, ConditionString) {
         "gte(X) := p(X) && >=(X, MOON) && =(MOON, moon) \n"
         "lt(X) := p(X) && <(X, MOON) && =(MOON, moon) \n"
         "lte(X) := p(X) && <=(X, MOON) && =(MOON, moon) \n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> eq(moon) neq(monday) neq(mop) gt(mop) gte(moon) "

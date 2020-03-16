@@ -34,5 +34,5 @@ TEST(SimpleTest, SimpleAtom) {
     expected[14] = "14 -> ";
 
     test_framework::run_test(stream_string, rule_string, expected,
-                             laser::util::ChaseAlgorithm::OBLIVIOUS);
+                             ares::util::ChaseAlgorithm::OBLIVIOUS);
 }

@@ -1,6 +1,6 @@
 #include "formula/extended/diamond.h"
 
-namespace laser::formula {
+namespace ares::formula {
 
 Diamond::Diamond(std::unique_ptr<formula::Formula> child)
     : child(std::move(child)) {}
@@ -92,4 +92,4 @@ Diamond::get_children() const {
 
 uint64_t Diamond::get_window_size() const { return 0; }
 
-} // namespace laser::formula
+} // namespace ares::formula

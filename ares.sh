@@ -69,8 +69,8 @@ run_valgrind_gtest_v () {
 }
 
 print_help () {
-    echo "Usage: laser.sh [b c d h r t]"
-    echo "b: build Laser++"
+    echo "Usage: ares.sh [b c d h r t]"
+    echo "b: build ares"
     echo "c: Clean project"
     echo "d: Debug Test App using GDB"
     echo "h: Print help"

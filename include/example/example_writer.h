@@ -1,5 +1,5 @@
-#ifndef LASER_EXAMPLE_EXAMPLE_WRITER_H
-#define LASER_EXAMPLE_EXAMPLE_WRITER_H
+#ifndef ARES_EXAMPLE_EXAMPLE_WRITER_H
+#define ARES_EXAMPLE_EXAMPLE_WRITER_H
 
 #include <iostream>
 #include <memory>
@@ -9,13 +9,13 @@
 
 #include <util/grounding.h>
 
-namespace laser {
+namespace ares {
 namespace example {
 
 class ExampleWriter {
   private:
-    std::vector<std::shared_ptr<laser::util::Grounding>>
-    remove_duplicates(std::vector<std::shared_ptr<laser::util::Grounding>>
+    std::vector<std::shared_ptr<ares::util::Grounding>>
+    remove_duplicates(std::vector<std::shared_ptr<ares::util::Grounding>>
                           input_groundings) const;
 
   public:
@@ -25,11 +25,11 @@ class ExampleWriter {
 
     std::string
     format_output(uint64_t time,
-                  std::vector<std::shared_ptr<laser::util::Grounding>>
+                  std::vector<std::shared_ptr<ares::util::Grounding>>
                       output_vector) const;
 };
 
 } // namespace example 
-} // namespace laser
+} // namespace ares
 
-#endif // LASER_EXAMPLE_EXAMPLE_WRITER_H
+#endif // ARES_EXAMPLE_EXAMPLE_WRITER_H

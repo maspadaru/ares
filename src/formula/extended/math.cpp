@@ -1,6 +1,6 @@
 #include "formula/extended/math.h"
 
-namespace laser::formula {
+namespace ares::formula {
 
 Math::Math(std::string math_sign, std::vector<std::string> arguments)
     : math_sign(std::move(math_sign)), arguments(std::move(arguments)) {
@@ -38,7 +38,7 @@ MathOperator Math::generate_operator(std::string const &math_sign) const {
 std::string
 Math::generate_predicate(std::string const &math_sign,
                          std::vector<std::string> const &arguments) const {
-    auto laser_math_pred_str = laser::util::special_predicate::MATH;
+    auto laser_math_pred_str = ares::util::special_predicate::MATH;
     auto pred_math_sign = laser_math_pred_str + math_sign;
     auto result =
         std::accumulate(arguments.begin(), arguments.end(), pred_math_sign);
@@ -129,4 +129,4 @@ size_t Math::get_number_of_variables() const {
     return child->get_number_of_variables();
 }
 
-} // namespace laser::formula
+} // namespace ares::formula

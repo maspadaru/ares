@@ -30,7 +30,7 @@ TEST(AtomsTest, Atom) {
                               "t(Y, X) := d(X, Y)\n"
                               "u(X, X) := f(X)\n"
                               "v(X, Y, X, Y) := e(X, Y)\n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> u(x1, x1)";

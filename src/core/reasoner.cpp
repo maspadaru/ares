@@ -1,8 +1,8 @@
 #include "core/reasoner.h"
 
-namespace laser::core {
+namespace ares::core {
 
-Reasoner::Reasoner(std::vector<std::unique_ptr<laser::rule::Rule>> &rule_vector,
+Reasoner::Reasoner(std::vector<std::unique_ptr<ares::rule::Rule>> &rule_vector,
                    IOManager *io_manager)
     : rule_vector(rule_vector), io_manager(io_manager) {
     is_listen_on = false;
@@ -125,4 +125,4 @@ std::vector<double> const &Reasoner::get_runtimes() const {
     return runtimes;
 }
 
-} // namespace laser::core
+} // namespace ares::core

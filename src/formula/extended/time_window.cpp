@@ -1,6 +1,6 @@
 #include "formula/extended/time_window.h"
 
-namespace laser::formula {
+namespace ares::formula {
 
 TimeWindow::TimeWindow(uint64_t size, std::unique_ptr<formula::Formula> child)
     : child(std::move(child)) {
@@ -142,4 +142,4 @@ TimeWindow::get_children() const {
 
 uint64_t TimeWindow::get_window_size() const { return past_size; }
 
-} // namespace laser::formula
+} // namespace ares::formula

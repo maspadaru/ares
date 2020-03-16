@@ -8,7 +8,7 @@
 
 void run(std::string const &name, std::string const &stream_string,
          std::string const &rule_string,
-         laser::util::ChaseAlgorithm chase_algorithm) {
+         ares::util::ChaseAlgorithm chase_algorithm) {
     std::cout << std::endl;
     std::cout << " Test: " << name << std::endl;
     std::cout << " =================================== " << std::endl;
@@ -16,11 +16,11 @@ void run(std::string const &name, std::string const &stream_string,
     // before parsing the rules !!!
     // As a general rule set the settings before initializing anything else.
     // I should make this more obvious somehow...
-    laser::util::Settings::get_instance().set_chase_algorithm(chase_algorithm);
-    auto example_io_manager = laser::example::ExampleIOManager(stream_string);
-    auto rule_parser = laser::rule::RuleParser(rule_string);
+    ares::util::Settings::get_instance().set_chase_algorithm(chase_algorithm);
+    auto example_io_manager = ares::example::ExampleIOManager(stream_string);
+    auto rule_parser = ares::rule::RuleParser(rule_string);
     auto rule_vector = rule_parser.get_rules();
-    auto reasoner = laser::core::Reasoner(rule_vector, &example_io_manager);
+    auto reasoner = ares::core::Reasoner(rule_vector, &example_io_manager);
     reasoner.start();
     std::cout << " =================================== " << std::endl;
     std::cout << std::endl << std::endl;
@@ -31,11 +31,11 @@ void run_acyclicity_test(std::string const &name,
     bool acyclicity_result;
     std::cout << std::endl;
     std::cout << " Acyclicity Test: " << name << std::endl;
-    laser::util::Settings::get_instance().set_chase_algorithm(
-        laser::util::ChaseAlgorithm::SKOLEM);
-    auto rule_parser = laser::rule::RuleParser(rule_string);
+    ares::util::Settings::get_instance().set_chase_algorithm(
+            ares::util::ChaseAlgorithm::SKOLEM);
+    auto rule_parser = ares::rule::RuleParser(rule_string);
     auto rule_vector = rule_parser.get_rules();
-    auto naive_smfa = laser::acyclicity::NaiveSMFA(rule_vector);
+    auto naive_smfa = ares::acyclicity::NaiveSMFA(rule_vector);
     acyclicity_result = naive_smfa.has_terminating_chase();
     std::cout << " Naive_SMFA returned: " << acyclicity_result
               << " expected: " << expected << ";" << std::endl;
@@ -92,7 +92,7 @@ void test_run() {
         "gte(X) := p(X) && >=(X, MOON) && =(MOON, moon) \n"
         "lt(X) := p(X) && <(X, MOON) && =(MOON, moon) \n"
         "lte(X) := p(X) && <=(X, MOON) && =(MOON, moon) \n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     run(name, stream_string, rule_string, chase_alg);
 }
 

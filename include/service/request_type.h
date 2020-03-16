@@ -1,7 +1,7 @@
-#ifndef LASER_SERVICE_REQUEST_TYPE_H
-#define LASER_SERVICE_REQUEST_TYPE_H
+#ifndef ARES_SERVICE_REQUEST_TYPE_H
+#define ARES_SERVICE_REQUEST_TYPE_H
 
-namespace laser {
+namespace ares {
 namespace service {
 
 enum class RequestType {
@@ -11,6 +11,6 @@ enum class RequestType {
 
 
 } // namespace service 
-} // namespace laser
+} // namespace ares
 
-#endif // LASER_SERVICE_REQUEST_TYPE_H
+#endif // ARES_SERVICE_REQUEST_TYPE_H

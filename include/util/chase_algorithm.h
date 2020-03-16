@@ -1,7 +1,7 @@
-#ifndef LASER_UTIL_CHASE_ALGORITHM_H
-#define LASER_UTIL_CHASE_ALGORITHM_H
+#ifndef ARES_UTIL_CHASE_ALGORITHM_H
+#define ARES_UTIL_CHASE_ALGORITHM_H
 
-namespace laser {
+namespace ares {
 namespace util {
 
 enum class ChaseAlgorithm {
@@ -11,6 +11,6 @@ enum class ChaseAlgorithm {
 };
 
 } // namespace util
-} // namespace laser
+} // namespace ares
 
-#endif // LASER_UTIL_CHASE_ALGORITHM_H
+#endif // ARES_UTIL_CHASE_ALGORITHM_H

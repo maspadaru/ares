@@ -1,5 +1,5 @@
-#ifndef LASER_RULE_MATH_EVALUATOR_CONDITION_H
-#define LASER_RULE_MATH_EVALUATOR_CONDITION_H
+#ifndef ARES_RULE_MATH_EVALUATOR_CONDITION_H
+#define ARES_RULE_MATH_EVALUATOR_CONDITION_H
 
 #include <map>
 #include <memory>
@@ -19,7 +19,7 @@
 #include "util/shared.h"
 #include "util/timeline.h"
 
-namespace laser::rule {
+namespace ares::rule {
 
 class Condition : public Evaluator {
   private:
@@ -90,6 +90,6 @@ class Condition : public Evaluator {
     std::vector<std::shared_ptr<util::Grounding>> get_groundings() override;
 };
 
-} // namespace laser::rule
+} // namespace ares::rule
 
-#endif // LASER_RULE_MATH_EVALUATOR_CONDITION_H
+#endif // ARES_RULE_MATH_EVALUATOR_CONDITION_H

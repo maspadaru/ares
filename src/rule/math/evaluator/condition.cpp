@@ -1,6 +1,6 @@
 #include "rule/math/evaluator/condition.h"
 
-namespace laser::rule {
+namespace ares::rule {
 
 void Condition::update_var_map_time_reference(
     std::unique_ptr<formula::Formula> const &formula) {
@@ -243,4 +243,4 @@ formula::MathOperator Condition::get_operator() const { return math_operator; }
 
 EvaluatorType Condition::get_evaluator_type() const { return evaluator_type; }
 
-} // namespace laser::rule
+} // namespace ares::rule

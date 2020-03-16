@@ -13,7 +13,7 @@ TEST(AssignmentTest, AssignmentSimple) {
                                 "3 : \n"
                                 "4 : \n";
     std::string rule_string = "p(X) := =(X, 3)\n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> p(3)";
@@ -31,7 +31,7 @@ TEST(AssignmentTest, AssignmentConjunctionLast) {
                                 "3 : \n"
                                 "4 : q(4)\n";
     std::string rule_string = "p(X, Y) := q(Y) && =(X, v)\n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> p(v, 1)";
@@ -48,7 +48,7 @@ TEST(AssignmentTest, AssignmentConjunctionFirst) {
                                 "3 : \n"
                                 "4 : q(4)\n";
     std::string rule_string = "p(X, Y) := =(X, v) && q(Y)\n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> p(v, 1)";
@@ -65,7 +65,7 @@ TEST(AssignmentTest, AssignmentConjunctionMiddle) {
                                 "3 : \n"
                                 "4 : q(4), r(d)\n";
     std::string rule_string = "p(X, Y, Z) := q(Y) && =(X, v) && r(Z)\n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> p(v, 1, a)";
@@ -82,7 +82,7 @@ TEST(AssignmentTest, AssignmentConjunctionConflict) {
                                 "3 : q(1), r(2)\n"
                                 "4 : q(1), r(1)\n";
     std::string rule_string = "p(X, X, X) := q(X) && =(X, 1) && r(X)\n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> p(1, 1, 1)";
@@ -100,7 +100,7 @@ TEST(AssignmentTest, AssignmentDiamond) {
                                 "3 : \n"
                                 "4 : \n";
     std::string rule_string = "p(X) := [$, 3][D] =(X, v)\n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> p(v)";
@@ -118,7 +118,7 @@ TEST(AssignmentTest, AssignmentBox) {
                                 "3 : \n"
                                 "4 : \n";
     std::string rule_string = "p(X) := [$, 3][B] =(X, v)\n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> p(v)";
@@ -136,7 +136,7 @@ TEST(AssignmentTest, AssignmentCondition) {
                                 "3 : \n"
                                 "4 : q(x0, y4), q(x0, y3), q(x0, y4)\n";
     std::string rule_string = "p(X, Y) := q(X, Y) && =(X, x0)\n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> ";
@@ -155,7 +155,7 @@ TEST(AssignmentTest, AassignmentTimeReference) {
                                 "4 : b(4)\n";
     std::string rule_string =
         "[@, T] a(X) := b(X) && =(T, 4) \n";
-    auto chase_alg = laser::util::ChaseAlgorithm::OBLIVIOUS;
+    auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
     expected[1] = "1 -> ";

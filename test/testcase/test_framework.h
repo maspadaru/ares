@@ -15,9 +15,9 @@
 
 namespace test_framework {
 
-void run_test(std::string const &stream_string, std::string const &rule_string, 
-         std::vector<std::string> const &expected,
-              laser::util::ChaseAlgorithm chase_algorithm);
+void run_test(std::string const &stream_string, std::string const &rule_string,
+              std::vector<std::string> const &expected,
+              ares::util::ChaseAlgorithm chase_algorithm);
 
 void run_acyclicity_test(std::string const &rule_string, bool expected);
 

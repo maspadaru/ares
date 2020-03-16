@@ -1,13 +1,9 @@
-//
-// Created by mike on 6/19/18.
-//
-
-#ifndef LASER_UTIL_FORMAT_EXCEPTION_H
-#define LASER_UTIL_FORMAT_EXCEPTION_H
+#ifndef ARES_UTIL_FORMAT_EXCEPTION_H
+#define ARES_UTIL_FORMAT_EXCEPTION_H
 
 #include <exception>
 
-namespace laser {
+namespace ares {
 namespace util {
 
 
@@ -25,7 +21,7 @@ public:
 };
 
 } // namespace util
-} // namespace laser
+} // namespace ares
 
 
-#endif // LASER_UTIL_FORMAT_EXCEPTION_H
+#endif // ARES_UTIL_FORMAT_EXCEPTION_H

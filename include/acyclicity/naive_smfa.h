@@ -1,5 +1,5 @@
-#ifndef LASER_ACYCLICITY_NAIVE_SMFA_H
-#define LASER_ACYCLICITY_NAIVE_SMFA_H
+#ifndef ARES_ACYCLICITY_NAIVE_SMFA_H
+#define ARES_ACYCLICITY_NAIVE_SMFA_H
 
 #include <algorithm> // std::min()
 #include <cmath>     // std::ceil()
@@ -14,7 +14,7 @@
 #include "rule/rule.h"
 #include "util/timeline.h"
 
-namespace laser::acyclicity {
+namespace ares::acyclicity {
 
 class NaiveSMFA {
   private:
@@ -57,6 +57,6 @@ class NaiveSMFA {
     bool has_terminating_chase();
 };
 
-} // namespace laser::acyclicity
+} // namespace ares::acyclicity
 
-#endif // LASER_ACYCLICITY_NAIVE_SMFA_H
+#endif // ARES_ACYCLICITY_NAIVE_SMFA_H

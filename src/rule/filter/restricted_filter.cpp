@@ -1,6 +1,6 @@
 #include "rule/filter/restricted_filter.h"
 
-namespace laser::rule {
+namespace ares::rule {
 
 void RestrictedFilter::init(
     std::vector<std::unique_ptr<formula::Formula>> const &head_atoms,
@@ -161,7 +161,7 @@ std::string RestrictedFilter::generate_new_value(std::string const &var_name) {
         auto null_value_count =
             util::Global::get_instance().get_null_value_count();
         result = std::to_string(null_value_count) +
-                 laser::util::special_value::CHASE_LABELED_NULL;
+                 ares::util::special_value::CHASE_LABELED_NULL;
     } else {
         result = var_name + std::to_string(null_value_count);
         null_value_count++;
@@ -475,4 +475,4 @@ bool RestrictedFilter::find_database_match(
     return false;
 }
 
-} // namespace laser::rule
+} // namespace ares::rule

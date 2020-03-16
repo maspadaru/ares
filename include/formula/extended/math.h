@@ -1,5 +1,5 @@
-#ifndef LASER_FORMULA_EXTENDED_MATH_H
-#define LASER_FORMULA_EXTENDED_MATH_H
+#ifndef ARES_FORMULA_EXTENDED_MATH_H
+#define ARES_FORMULA_EXTENDED_MATH_H
 
 #include <map>
 #include <memory>
@@ -15,7 +15,7 @@
 #include "util/shared.h"
 #include "util/timeline.h"
 
-namespace laser::formula {
+namespace ares::formula {
 
 class Math : public Formula {
   private:
@@ -84,6 +84,6 @@ class Math : public Formula {
     get_conclusions_timepoint(util::Timeline const &timeline) override;
 };
 
-} // namespace laser::formula
+} // namespace ares::formula
 
-#endif // LASER_FORMULA_EXTENDED_MATH_H
+#endif // ARES_FORMULA_EXTENDED_MATH_H

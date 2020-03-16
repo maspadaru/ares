@@ -1,5 +1,5 @@
-#ifndef LASER_FORMULA_EXTENDED_TIME_REFERENCE_H
-#define LASER_FORMULA_EXTENDED_TIME_REFERENCE_H
+#ifndef ARES_FORMULA_EXTENDED_TIME_REFERENCE_H
+#define ARES_FORMULA_EXTENDED_TIME_REFERENCE_H
 
 #include <set>
 #include <string>
@@ -9,7 +9,7 @@
 #include "formula/math_operator.h"
 #include "util/grounding.h"
 
-namespace laser::formula {
+namespace ares::formula {
 
 /**
  * Time Reference (@) Formula
@@ -123,6 +123,6 @@ class TimeReference : public Formula {
     uint64_t get_window_size() const override;
 };
 
-} // namespace laser::formula
+} // namespace ares::formula
 
-#endif // LASER_FORMULA_EXTENDED_TIME_REFERENCE_H
+#endif // ARES_FORMULA_EXTENDED_TIME_REFERENCE_H

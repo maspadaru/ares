@@ -1,6 +1,6 @@
 #include "util/global.h"
 
-namespace laser::util {
+namespace ares::util {
 
 Global &Global::get_instance() {
     static Global instance; // Guaranteed to be destroyed.
@@ -14,4 +14,4 @@ uint64_t Global::get_null_value_count() {
     return this->null_value_count;
 }
 
-} // namespace laser::util
+} // namespace ares::util
