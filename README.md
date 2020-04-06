@@ -1,4 +1,4 @@
-# ARES - A Reasoning Engine for Streams 
+# ARES - Advanced Reasoning Engine for Streams 
 
 **ARES** started as a C++ implementation of the [Laser](https://research.vu.nl/en/publications/expressive-stream-reasoning-with-ares) a stream reasoning engine 
 based on the [LARS logic framework](http://www.kr.tuwien.ac.at/research/projects/dhsr/pub/2015/bdef2015-aaai.pdf)   
