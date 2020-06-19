@@ -23,7 +23,7 @@ class IOManager {
     read_stream_data(ares::util::Timeline &timeline) = 0;
 
     virtual std::vector<std::shared_ptr<ares::util::Grounding>>
-    read_background_data() = 0;
+    read_background_data(ares::util::Timeline &timeline) = 0;
 
     virtual void
     write_output_data(uint64_t time,

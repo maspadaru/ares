@@ -33,6 +33,7 @@ class Reasoner {
     bool is_listen_on = false;
     std::unordered_map<uint64_t, std::vector<std::shared_ptr<util::Grounding>>>
         fact_map;
+    std::vector<std::shared_ptr<util::Grounding>> background_fact_vector;
     std::unordered_map<uint64_t, std::vector<std::shared_ptr<util::Grounding>>>
         conclusion_map;
     std::vector<double> runtimes;

@@ -7,6 +7,7 @@
 #include <util/chase_algorithm.h>
 
 void run(std::string const &name, std::string const &stream_string,
+         std::string const &background_string,
          std::string const &rule_string,
          ares::util::ChaseAlgorithm chase_algorithm) {
     std::cout << std::endl;
@@ -17,7 +18,8 @@ void run(std::string const &name, std::string const &stream_string,
     // As a general rule set the settings before initializing anything else.
     // I should make this more obvious somehow...
     ares::util::Settings::get_instance().set_chase_algorithm(chase_algorithm);
-    auto example_io_manager = ares::example::ExampleIOManager(stream_string);
+    auto example_io_manager = 
+        ares::example::ExampleIOManager(stream_string, background_string);
     auto rule_parser = ares::rule::RuleParser(rule_string);
     auto rule_vector = rule_parser.get_rules();
     auto reasoner = ares::core::Reasoner(rule_vector, &example_io_manager);
@@ -80,20 +82,15 @@ void test_acyclicity_only_first_timepoint() {
 
 void test_run() {
     const std::string name = "Test Run";
+    std::string background_string = "b(x1), b(x2), b(x3)";
     std::string stream_string = "1 4 "
-                                "1 : p(monday), p(moon), p(mop)\n"
-                                "2 : \n"
-                                "3 : \n"
+                                "1 : a(x1, y1, z1)\n"
+                                "2 : a(x2, y2, z2)\n"
+                                "3 : a(x3, y3, z3)\n"
                                 "4 : \n";
-    std::string rule_string =
-        "eq(X) := p(X) && ?=(X, MOON) && =(MOON, moon) \n"
-        "neq(X) := p(X) && !=(X, MOON) && =(MOON, moon) \n"
-        "gt(X) := p(X) && >(X, MOON) && =(MOON, moon) \n"
-        "gte(X) := p(X) && >=(X, MOON) && =(MOON, moon) \n"
-        "lt(X) := p(X) && <(X, MOON) && =(MOON, moon) \n"
-        "lte(X) := p(X) && <=(X, MOON) && =(MOON, moon) \n";
+    std::string rule_string = "p(X, Y, Z) := b(X) && a(X, Y, Z)\n";
     auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
-    run(name, stream_string, rule_string, chase_alg);
+    run(name, stream_string, background_string, rule_string, chase_alg);
 }
 
 int main() {

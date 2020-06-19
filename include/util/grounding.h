@@ -79,6 +79,8 @@ class Grounding {
 
     bool is_background_fact() const;
 
+    void set_background_fact(bool is_background);
+
     bool is_fact() const;
 
     std::string const &get_constant(size_t variable_index) const;

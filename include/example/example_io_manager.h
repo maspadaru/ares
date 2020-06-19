@@ -25,6 +25,8 @@ class ExampleIOManager : public ares::core::IOManager {
 
   public:
     explicit ExampleIOManager(std::string stream_string);
+    ExampleIOManager(std::string stream_string,
+                              std::string background_string);
 
     ~ExampleIOManager() override = default;
 
@@ -36,17 +38,16 @@ class ExampleIOManager : public ares::core::IOManager {
     read_stream_data(ares::util::Timeline &timeline) override;
 
     std::vector<std::shared_ptr<ares::util::Grounding>>
-    read_background_data() override;
+    read_background_data(ares::util::Timeline &timeline) override;
 
-    void
-    write_output_data(uint64_t time,
-                      std::vector<std::shared_ptr<ares::util::Grounding>>
-                          output_vector) override;
+    void write_output_data(uint64_t time,
+                           std::vector<std::shared_ptr<ares::util::Grounding>>
+                               output_vector) override;
 
     std::string get_output(uint64_t time) const;
 };
 
-} // namespace example 
+} // namespace example
 } // namespace ares
 
 #endif // ARES_EXAMPLE_EXAMPLE_IO_MANAGER_H

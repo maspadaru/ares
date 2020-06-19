@@ -15,25 +15,54 @@ uint64_t ExampleReader::get_stream_end_time() const {
     return this->end_time;
 }
 
-void ExampleReader::check_source() const {
-    if (!has_source) {
-        throw ares::util::ReadException("Input source was not "
+void ExampleReader::check_data_source() const {
+    if (!has_data_source) {
+        throw ares::util::ReadException("Input data source was not "
                                               "initialized");
     }
 }
 
-bool ExampleReader::read_line() {
+bool ExampleReader::read_line(std::stringstream &source) {
     std::getline(source, latest_read_line);
     return source.good();
 }
 
-void ExampleReader::set_source(std::string source_string) {
-    if (has_source) {
-        source.clear();
+void ExampleReader::set_background_source(std::string background_string) {
+    if (has_background_source) {
+        background_source.clear();
     } else {
-        has_source = true;
+        has_background_source = true;
     }
-    source.str(source_string);
+    background_source.str(background_string);
+}
+
+std::vector<std::string> ExampleReader::read_background_data() {
+    std::vector<std::string> result;
+    if (has_background_source) {
+        bool keep_going = true;
+        while (keep_going) {
+            if (latest_read_line.empty()) {
+                read_line(background_source);
+            }
+            auto line_string = parse_background_line();
+            latest_read_line.clear();
+            if (line_string.empty()) {
+                keep_going = false;
+            } else {
+                result.push_back(std::move(line_string));
+            }
+        }
+    }
+    return result;
+}
+
+void ExampleReader::set_data_source(std::string data_source_string) {
+    if (has_data_source) {
+        data_source.clear();
+    } else {
+        has_data_source = true;
+    }
+    data_source.str(data_source_string);
 }
 
 bool ExampleReader::is_valid_line(
@@ -60,10 +89,21 @@ std::unordered_map<char, std::string> ExampleReader::parse_latest_line() const {
     return result;
 }
 
+std::string ExampleReader::parse_background_line() const {
+    std::string result;
+    std::stringstream line_stream(latest_read_line);
+    std::string value;
+    std::getline(line_stream, value);
+    if (!line_stream.fail()) {
+        result = std::move(value);
+    }
+    return result;
+}
+
 std::vector<std::string> ExampleReader::read_all_lines() {
-    check_source();
+    check_data_source();
     std::vector<std::string> result;
-    while (read_line()) {
+    while (read_line(data_source)) {
         auto line_map = parse_latest_line();
         if (!line_map.empty()) {
             result.push_back(line_map.at(LINE_VALUE));
@@ -79,7 +119,7 @@ std::vector<std::string> ExampleReader::read_all_data() {
 
 std::vector<std::string>
 ExampleReader::read_next_data(uint64_t request_time_point) {
-    check_source();
+    check_data_source();
     std::vector<std::string> fact_vector;
     bool keep_going = true;
     while (keep_going) {
@@ -94,7 +134,7 @@ ExampleReader::read_next_data(uint64_t request_time_point) {
          */
 
         if (latest_read_line.empty()) {
-            read_line();
+            read_line(data_source);
         }
         auto line_map = parse_latest_line();
         if (line_map.empty()) {
@@ -119,10 +159,10 @@ ExampleReader::read_next_data(uint64_t request_time_point) {
 }
 
 bool ExampleReader::fetch_metadata() {
-    check_source();
+    check_data_source();
     if (!has_metadata_m) {
-        source >> start_time;
-        source >> end_time;
+        data_source >> start_time;
+        data_source >> end_time;
         has_metadata_m = true;
     }
     return has_metadata_m;

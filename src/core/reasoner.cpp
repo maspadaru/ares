@@ -20,6 +20,13 @@ void Reasoner::insert_facts(
     std::lock_guard<std::mutex> guard(fact_map_mutex);
     total_facts_read += facts.size();
     fact_map.try_emplace(timepoint, std::move(facts));
+    if (background_fact_vector.size() > 0) {
+        auto &map_facts = fact_map.at(timepoint);
+        map_facts.insert(map_facts.end(), 
+            std::make_move_iterator(background_fact_vector.begin()), 
+            std::make_move_iterator(background_fact_vector.end()));
+        background_fact_vector.clear();
+    }
 }
 
 std::vector<std::shared_ptr<util::Grounding>>
@@ -53,6 +60,7 @@ void Reasoner::start() {
     main_timeline.set_start_time(start_time);
     main_timeline.set_min_time(start_time);
     main_timeline.set_max_time(end_time);
+    background_fact_vector = io_manager->read_background_data(main_timeline);
     std::thread read_thread(&Reasoner::read, this, main_timeline);
     std::thread evaluate_thread(&Reasoner::evaluate, this, main_timeline);
     std::thread write_thread(&Reasoner::write, this, main_timeline);

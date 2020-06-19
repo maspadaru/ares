@@ -27,8 +27,15 @@ ExampleIOManager::read_stream_data(ares::util::Timeline &timeline) {
 }
 
 std::vector<std::shared_ptr<ares::util::Grounding>>
-ExampleIOManager::read_background_data() {
-    return std::vector<std::shared_ptr<ares::util::Grounding>>();
+ExampleIOManager::read_background_data(ares::util::Timeline &timeline) {
+    auto data_vector = example_stream_reader.read_background_data();
+    auto parsed_data = example_parser.parse_data(timeline, data_vector);
+    for (auto &grounding : parsed_data) {
+        grounding->set_consideration_time(timeline.get_min_time());
+        grounding->set_horizon_time(timeline.get_max_time());
+        grounding->set_background_fact(true);
+    }
+    return parsed_data;
 }
 
 void ExampleIOManager::write_output_data(
@@ -48,7 +55,13 @@ std::string ExampleIOManager::get_output(uint64_t time) const {
 }
 
 ExampleIOManager::ExampleIOManager(std::string stream_string) {
-    example_stream_reader.set_source(std::move(stream_string));
+    example_stream_reader.set_data_source(std::move(stream_string));
+}
+
+ExampleIOManager::ExampleIOManager(std::string stream_string,
+                              std::string background_string) {
+    example_stream_reader.set_background_source(std::move(background_string));
+    example_stream_reader.set_data_source(std::move(stream_string));
 }
 
 } // namespace example 

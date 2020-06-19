@@ -20,18 +20,22 @@ class ExampleReader {
     static constexpr char LINE_VALUE = 2;
     static constexpr char EXPECTED_LINE_DELIMITER = ':';
 
-    std::stringstream source;
-    bool has_source = false;
+    std::stringstream background_source;
+    std::stringstream data_source;
+    bool has_background_source = false;
+    bool has_data_source = false;
     uint64_t start_time;
     uint64_t end_time;
     bool has_metadata_m = false;
     std::string latest_read_line;
 
-    void check_source() const;
+    void check_data_source() const;
 
-    bool read_line();
+    bool read_line(std::stringstream &source);
 
     std::unordered_map<char, std::string> parse_latest_line() const;
+
+    std::string parse_background_line() const; 
 
     bool is_valid_line(std::string key, std::string delimiter,
                        std::string value) const;
@@ -53,7 +57,11 @@ class ExampleReader {
 
     std::vector<std::string> read_next_data(uint64_t request_time_point);
 
-    void set_source(std::string source_string);
+    std::vector<std::string> read_background_data();
+
+    void set_data_source(std::string data_source_string);
+
+    void set_background_source(std::string background_string);
 };
 
 } // namespace example

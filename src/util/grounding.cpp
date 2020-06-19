@@ -72,6 +72,10 @@ uint64_t Grounding::get_horizon_count() const { return horizon_count; }
 
 bool Grounding::is_background_fact() const { return is_background_fact_m; }
 
+void Grounding::set_background_fact(bool is_background) {
+    this->is_background_fact_m = is_background;
+}
+
 bool Grounding::is_fact() const { return is_fact_m; }
 
 void Grounding::set_annotations(uint64_t consideration_time,
