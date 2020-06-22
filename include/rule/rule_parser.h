@@ -33,6 +33,7 @@ class RuleParser {
     inline void syntax_error(std::string const &error_message) const;
 
     // Parser helper methods
+    bool is_letter_or_sign(char c);
     void skip_spaces();
     void skip_next_char();
     char read_next_char();

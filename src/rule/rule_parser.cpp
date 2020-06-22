@@ -38,7 +38,7 @@ void RuleParser::skip_conjunction_operator() {
 char RuleParser::peek_next_char() { return input.peek(); }
 
 bool RuleParser::is_next_char_letter() {
-    return std::isalpha(peek_next_char()) > 0;
+    return is_letter_or_sign(peek_next_char()) > 0;
 }
 
 bool RuleParser::is_next_char_digit() {
@@ -67,8 +67,7 @@ bool RuleParser::is_next_char_algebra_operator() {
 bool RuleParser::is_next_char_equals_sign() { return is_next_char('='); }
 
 bool RuleParser::is_next_char_condition_operator() {
-    return is_next_char('<') || is_next_char('>') || is_next_char('?') ||
-           is_next_char('!');
+    return is_next_char('?');
 }
 
 void RuleParser::parse_eoln() {
@@ -92,11 +91,17 @@ std::string RuleParser::parse_algebra_operator() {
 
 std::string RuleParser::parse_condition_operator() {
     std::stringstream result_stream;
+    read_next_char(); // skipping '?' character
     result_stream << read_next_char();
     if (is_next_char_equals_sign()) {
         result_stream << read_next_char();
     }
-    return result_stream.str();
+    auto result = result_stream.str();
+    if (result == "=") {
+        // keeping "?=" in this case, to diferentiate fro assignment predicate
+        result = "?=";
+    }
+    return result;
 }
 
 char RuleParser::parse_nonzero() {
@@ -120,9 +125,15 @@ char RuleParser::parse_diggit() {
     return result;
 }
 
+bool RuleParser::is_letter_or_sign(char c) {
+    return std::isalpha(c) || c=='<' || c=='>'
+         || c=='/' || c==':' || c=='"' || c=='#'
+         || c=='-' || c=='_' || c=='~' || c=='.'; 
+}
+
 char RuleParser::parse_letter() {
     char input_char = read_next_char();
-    if (std::isalpha(input_char) == 0) {
+    if (is_letter_or_sign(input_char) == 0) {
         std::stringstream error_stream;
         error_stream << "Expected letter "
                      << " but actual caracter was [" << input_char

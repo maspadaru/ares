@@ -2,12 +2,15 @@
 
 namespace test_framework {
 
-void run_test(std::string const &stream_string, std::string const &rule_string,
+void run_test(std::string const &stream_string,
+              std::string const &background_string,
+              std::string const &rule_string,
               std::vector<std::string> const &expected,
               ares::util::ChaseAlgorithm chase_algorithm) {
     ares::util::Settings::get_instance().set_chase_algorithm(chase_algorithm);
     ares::util::Settings::get_instance().set_global_null_values(false);
-    auto example_io_manager = ares::example::ExampleIOManager(stream_string);
+    auto example_io_manager = ares::example::ExampleIOManager(stream_string, 
+            background_string);
     auto rule_parser = ares::rule::RuleParser(rule_string);
     auto rule_vector = rule_parser.get_rules();
     auto reasoner = ares::core::Reasoner(rule_vector, &example_io_manager);
@@ -41,10 +44,18 @@ void run_test(std::string const &stream_string, std::string const &rule_string,
     }
 }
 
+void run_test(std::string const &stream_string, std::string const &rule_string,
+              std::vector<std::string> const &expected,
+              ares::util::ChaseAlgorithm chase_algorithm) {
+    std::string background_string = "";
+    run_test(stream_string, background_string, rule_string, expected,
+             chase_algorithm);
+}
+
 void run_acyclicity_test(std::string const &rule_string, bool expected) {
     bool acyclicity_result;
     ares::util::Settings::get_instance().set_chase_algorithm(
-            ares::util::ChaseAlgorithm::SKOLEM);
+        ares::util::ChaseAlgorithm::SKOLEM);
     auto rule_parser = ares::rule::RuleParser(rule_string);
     auto rule_vector = rule_parser.get_rules();
     auto naive_smfa = ares::acyclicity::NaiveSMFA(rule_vector);

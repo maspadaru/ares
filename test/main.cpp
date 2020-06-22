@@ -82,13 +82,13 @@ void test_acyclicity_only_first_timepoint() {
 
 void test_run() {
     const std::string name = "Test Run";
-    std::string background_string = "b(x1), b(x2), b(x3)";
+    std::string background_string = "";
     std::string stream_string = "1 4 "
-                                "1 : a(x1, y1, z1)\n"
-                                "2 : a(x2, y2, z2)\n"
-                                "3 : a(x3, y3, z3)\n"
+                                "1 : <http://www.w3.org/2000/01/rdf-schema#label>(<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#Book>, \"book1\")\n"
+                                "2 : <http://www.w3.org/2000/01/rdf-schema#label>(<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#Book>, \"book2\")\n"
+                                "3 : <http://www.w3.org/2000/01/rdf-schema#label>(<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#Book>, \"book3\")\n"
                                 "4 : \n";
-    std::string rule_string = "p(X, Y, Z) := b(X) && a(X, Y, Z)\n";
+    std::string rule_string = " <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>(Y, X) := <http://www.w3.org/2000/01/rdf-schema#label>(X, Y)\n";
     auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     run(name, stream_string, background_string, rule_string, chase_alg);
 }

@@ -29,7 +29,7 @@ TEST(ConditionTest, ConditionNotEqual) {
                                 "2 : p(77), p(220)\n"
                                 "3 : p(47), p(100), p(300)\n"
                                 "4 : \n";
-    std::string rule_string = "q(X) := p(X) && !=(X, C) && =(C,100) \n";
+    std::string rule_string = "q(X) := p(X) && ?!=(X, C) && =(C,100) \n";
     auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
@@ -46,7 +46,7 @@ TEST(ConditionTest, ConditionGreather) {
                                 "2 : p(77), p(220)\n"
                                 "3 : p(47), p(100), p(300)\n"
                                 "4 : \n";
-    std::string rule_string = "q(X) := p(X) && >(X, C) && =(C,100) \n";
+    std::string rule_string = "q(X) := p(X) && ?>(X, C) && =(C,100) \n";
     auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
@@ -63,7 +63,7 @@ TEST(ConditionTest, ConditionGreatherEqual) {
                                 "2 : p(77), p(220)\n"
                                 "3 : p(47), p(100), p(300)\n"
                                 "4 : \n";
-    std::string rule_string = "q(X) := p(X) && >=(X, C) && =(C,100) \n";
+    std::string rule_string = "q(X) := p(X) && ?>=(X, C) && =(C,100) \n";
     auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
@@ -80,7 +80,7 @@ TEST(ConditionTest, ConditionLesser) {
                                 "2 : p(77), p(220)\n"
                                 "3 : p(47), p(100), p(300)\n"
                                 "4 : \n";
-    std::string rule_string = "q(X) := p(X) && <(X, C) && =(C,100) \n";
+    std::string rule_string = "q(X) := p(X) && ?<(X, C) && =(C,100) \n";
     auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
@@ -97,7 +97,7 @@ TEST(ConditionTest, ConditionLesserEqual) {
                                 "2 : p(77), p(220)\n"
                                 "3 : p(47), p(100), p(300)\n"
                                 "4 : \n";
-    std::string rule_string = "q(X) := p(X) && <=(X, C) && =(C,100) \n";
+    std::string rule_string = "q(X) := p(X) && ?<=(X, C) && =(C,100) \n";
     auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
@@ -116,11 +116,11 @@ TEST(ConditionTest, ConditionString) {
                                 "4 : \n";
     std::string rule_string =
         "eq(X) := p(X) && ?=(X, MOON) && =(MOON, moon) \n"
-        "neq(X) := p(X) && !=(X, MOON) && =(MOON, moon) \n"
-        "gt(X) := p(X) && >(X, MOON) && =(MOON, moon) \n"
-        "gte(X) := p(X) && >=(X, MOON) && =(MOON, moon) \n"
-        "lt(X) := p(X) && <(X, MOON) && =(MOON, moon) \n"
-        "lte(X) := p(X) && <=(X, MOON) && =(MOON, moon) \n";
+        "neq(X) := p(X) && ?!=(X, MOON) && =(MOON, moon) \n"
+        "gt(X) := p(X) && ?>(X, MOON) && =(MOON, moon) \n"
+        "gte(X) := p(X) && ?>=(X, MOON) && =(MOON, moon) \n"
+        "lt(X) := p(X) && ?<(X, MOON) && =(MOON, moon) \n"
+        "lte(X) := p(X) && ?<=(X, MOON) && =(MOON, moon) \n";
     auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     std::vector<std::string> expected(15);
     expected[0] = "0 -> ";
