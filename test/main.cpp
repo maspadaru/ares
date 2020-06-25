@@ -82,13 +82,18 @@ void test_acyclicity_only_first_timepoint() {
 
 void test_run() {
     const std::string name = "Test Run";
-    std::string background_string = "";
+    std::string background_string = "<http://www.w3.org/2000/01/rdf-schema#label>(<https://www.pearson.com/us/higher-education/program/Tanenbaum-Structured-Computer-Organization-6th-Edition/PGM200985.html>,  \"book\"), " 
+    " <http://www.w3.org/2000/01/rdf-schema#label>(<https://www.pearson.com/us/higher-education/program/Tanenbaum-Modern-Operating-Systems-4th-Edition/PGM80736.html>, \"book\"), " 
+    "<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#AuthorOf>(<https://en.wikipedia.org/wiki/Andrew_S._Tanenbaum>, <https://www.pearson.com/us/higher-education/program/Tanenbaum-Structured-Computer-Organization-6th-Edition/PGM200985.html>), " 
+    "<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#AuthorOf>(<https://www.cs.vu.nl/~herbertb/>, <https://www.pearson.com/us/higher-education/program/Tanenbaum-Modern-Operating-Systems-4th-Edition/PGM80736.html> )" ;
     std::string stream_string = "1 4 "
-                                "1 : <http://www.w3.org/2000/01/rdf-schema#label>(<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#Book>, \"book1\")\n"
-                                "2 : <http://www.w3.org/2000/01/rdf-schema#label>(<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#Book>, \"book2\")\n"
-                                "3 : <http://www.w3.org/2000/01/rdf-schema#label>(<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#Book>, \"book3\")\n"
+                                "1 : <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#Book>(<https://www.pearson.com/us/higher-education/program/Tanenbaum-Structured-Computer-Organization-6th-Edition/PGM200985.html>)\n"
+                                "2 : <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#Book>(<https://www.pearson.com/us/higher-education/program/Tanenbaum-Modern-Operating-Systems-4th-Edition/PGM80736.html>)\n"
+                                "3 : \n"
                                 "4 : \n";
-    std::string rule_string = " <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>(Y, X) := <http://www.w3.org/2000/01/rdf-schema#label>(X, Y)\n";
+
+    std::string rule_string = "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>(Y,X) := <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#Book>(X) && <http://www.w3.org/2000/01/rdf-schema#label>(X, Y)\n"
+    "<http://www.w3.org/1999/02/22-rdf-syntax-ns#WrittenBy>(X, Y) :=  <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#Book>(X) && <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#AuthorOf>(Y, X)\n";
     auto chase_alg = ares::util::ChaseAlgorithm::OBLIVIOUS;
     run(name, stream_string, background_string, rule_string, chase_alg);
 }
